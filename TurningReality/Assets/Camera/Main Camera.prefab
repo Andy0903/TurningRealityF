@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 20137671968941262}
   - component: {fileID: 124159925590892404}
   - component: {fileID: 92963941919793414}
-  - component: {fileID: 81283077114567500}
   - component: {fileID: 114624324653871252}
   m_Layer: 0
   m_Name: GlowPrePassCamera
@@ -152,13 +151,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!81 &81283077114567500
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056902529546452}
-  m_Enabled: 1
 --- !u!81 &81563466324895312
 AudioListener:
   m_ObjectHideFlags: 1
@@ -217,6 +209,7 @@ MonoBehaviour:
   damping: 10
   maxPitchAngle: 50
   minPitchAngle: -50
+  zoomSpeed: 10
 --- !u!114 &114905333450157224
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -14,18 +14,42 @@ public class FollowCamera : MonoBehaviour
     float maxPitchAngle = 50;
     [SerializeField]
     float minPitchAngle = -50;
+    [SerializeField]
+    float zoomSpeed = 10f;
+    [SerializeField]
+    float maxZoomOut = 15;
+    [SerializeField]
+    float minZoomOut = 3;
+    
 
     private void Start()
     {
         offset = target.transform.position - transform.position;
     }
 
-    void Update()
+    private void ZoomInput()
     {
-        RotationInput();
+        float zoom = Input.GetAxis("Zoom");
+        bool zoomingOut = (0 < zoom);
+        bool zoomingIn = (zoom < 0);
+
+        if (zoomingOut)
+        {
+            if (offset.z < maxZoomOut)
+            {
+                offset = new Vector3(offset.x, offset.y, offset.z + (zoomSpeed * Time.deltaTime));
+            }
+        }
+        else if (zoomingIn)
+        {
+            if (offset.z > minZoomOut)
+            {
+                offset = new Vector3(offset.x, offset.y, offset.z - (zoomSpeed * Time.deltaTime));
+            }
+        }
     }
 
-    void RotationInput()
+    private void RotationInput()
     {
         float pitch = Input.GetAxis("Pitch");
         pitch = Mathf.Clamp(pitch, -1, 1);
@@ -39,15 +63,17 @@ public class FollowCamera : MonoBehaviour
         {
             transform.localEulerAngles = new Vector3(minPitchAngle, transform.rotation.y, transform.rotation.z);
         }
-        if (angle > maxPitchAngle)
+        else if (angle > maxPitchAngle)
         {
             transform.localEulerAngles = new Vector3(maxPitchAngle, transform.rotation.y, transform.rotation.z);
         }
     }
 
-
     private void LateUpdate()
     {
+        RotationInput();
+        ZoomInput();
+
         float currentY = transform.eulerAngles.y;
         float desiredY = target.transform.eulerAngles.y;
         float angleY = Mathf.LerpAngle(currentY, desiredY, Time.deltaTime * damping);
