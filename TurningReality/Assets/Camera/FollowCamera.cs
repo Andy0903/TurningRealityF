@@ -7,8 +7,13 @@ public class FollowCamera : MonoBehaviour
     [SerializeField]
     GameObject target;
     Vector3 offset;
-    
+
+    [SerializeField]
     float damping = 10f;
+    [SerializeField]
+    float maxPitchAngle = 50;
+    [SerializeField]
+    float minPitchAngle = -50;
 
     private void Start()
     {
@@ -26,6 +31,18 @@ public class FollowCamera : MonoBehaviour
         pitch = Mathf.Clamp(pitch, -1, 1);
 
         transform.Rotate(pitch, 0, 0);
+
+        float angle = transform.localEulerAngles.x;
+        angle = (angle > 180) ? angle - 360 : angle;
+
+        if (angle < minPitchAngle)
+        {
+            transform.localEulerAngles = new Vector3(minPitchAngle, transform.rotation.y, transform.rotation.z);
+        }
+        if (angle > maxPitchAngle)
+        {
+            transform.localEulerAngles = new Vector3(maxPitchAngle, transform.rotation.y, transform.rotation.z);
+        }
     }
 
 
