@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 124572896476675992}
   - component: {fileID: 81563466324895312}
   - component: {fileID: 114640184557760474}
+  - component: {fileID: 114223543052058668}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -94,6 +95,17 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1290432882665340}
   m_Enabled: 1
+--- !u!114 &114223543052058668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1290432882665340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934092fb809bf7f44b481b71b2326baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114640184557760474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,6 +118,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  damping: 10
+  maxPitchAngle: 50
+  minPitchAngle: -50
 --- !u!124 &124572896476675992
 Behaviour:
   m_ObjectHideFlags: 1
