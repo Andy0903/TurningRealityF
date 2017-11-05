@@ -29,13 +29,10 @@ public class Movement : MonoBehaviour
 
     void RotationInput()
     {
-        float pitch = Input.GetAxis("Pitch");
         float yaw = Input.GetAxis("Yaw");
-        
-        pitch = Mathf.Clamp(pitch, -1, 1);
         yaw = Mathf.Clamp(yaw, -1, 1);
 
-        transform.Rotate(pitch, yaw, 0);
+        transform.Rotate(0, yaw, 0);
     }
 
     void TranslationInput()
