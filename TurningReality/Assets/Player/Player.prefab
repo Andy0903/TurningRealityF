@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 54528249608820546}
   - component: {fileID: 136292898058985406}
   - component: {fileID: 114311042193015182}
+  - component: {fileID: 114722958762762066}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -86,7 +87,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f593bb3951e35f947850108443a0af58, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -141,6 +142,19 @@ MonoBehaviour:
   speed: 4
   distanceToGroundOffset: 0.1
   jumpForce: 6
+--- !u!114 &114722958762762066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161670658390980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a2f22f59caf7544a135e9f5b878837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayOffset: {x: 0, y: 0, z: 0}
+  pickupRange: 2
 --- !u!136 &136292898058985406
 CapsuleCollider:
   m_ObjectHideFlags: 1
