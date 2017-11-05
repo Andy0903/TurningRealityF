@@ -27,21 +27,35 @@ public class Movement : MonoBehaviour
         ProcessInput();
     }
 
-    void ProcessInput()
+    void RotationInput()
+    {
+        float pitch = Input.GetAxis("Pitch");
+        float yaw = Input.GetAxis("Yaw");
+        
+        pitch = Mathf.Clamp(pitch, -1, 1);
+        yaw = Mathf.Clamp(yaw, -1, 1);
+
+        transform.Rotate(pitch, yaw, 0);
+    }
+
+    void TranslationInput()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         bool jump = Input.GetButtonDown("Jump");
 
-        Vector3 cameraDirection = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-        Vector3 movement = vertical * cameraDirection + horizontal * Camera.main.transform.right;
-        movement.Normalize();
-
+        Vector3 movement = new Vector3(horizontal, 0, vertical).normalized;
         transform.Translate(movement * speed * Time.deltaTime);
 
         if (jump && IsGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
+    }
+
+    void ProcessInput()
+    {
+        RotationInput();
+        TranslationInput();
     }
 }
