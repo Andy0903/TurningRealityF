@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 33836024219665300}
   - component: {fileID: 65977441627707082}
   - component: {fileID: 23757970410307954}
+  - component: {fileID: 114430180694486984}
   m_Layer: 0
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,8 +89,24 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416376171536454}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114430180694486984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416376171536454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40dc820476e982b418ada0c7948963c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TotalNumberOfRotations: 1
+  Axes: []
+  TiltDegrees: []
+  InteractiveObjects:
+  - {fileID: 1161670658390980, guid: becea8e15166e6049b8cfc57c958f0da, type: 2}

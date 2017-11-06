@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431723740ea6c1a44a5e75d4f8dd1fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 10
   distanceToGroundOffset: 0.1
   jumpForce: 6
 --- !u!114 &114722958762762066
