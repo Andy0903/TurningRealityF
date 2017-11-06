@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 136292898058985406}
   - component: {fileID: 114311042193015182}
   - component: {fileID: 114722958762762066}
+  - component: {fileID: 114846630816012142}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -155,6 +156,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayOffset: {x: 0, y: 0, z: 0}
   pickupRange: 2
+--- !u!114 &114846630816012142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161670658390980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c353373459227cc4aa2953426f39edce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 1, g: 1, b: 1, a: 0}
+  lerpFactor: 10
 --- !u!136 &136292898058985406
 CapsuleCollider:
   m_ObjectHideFlags: 1

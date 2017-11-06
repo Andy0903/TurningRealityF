@@ -24,7 +24,10 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        PathManager.Instance.UpdateData(transform.position);
+        if (PathManager.Instance != null)
+        {
+            PathManager.Instance.UpdateData(transform.position);
+        }
         ProcessInput();
     }
 

@@ -9,8 +9,11 @@ public class GoalManager : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            PathManager.Instance.Save();
-            PathManager.Instance.Clear();
+            if (PathManager.Instance != null)
+            {
+                PathManager.Instance.Save();
+                PathManager.Instance.Clear();
+            }
 
             if (SceneManager.GetActiveScene().buildIndex + 1 <= SceneManager.sceneCountInBuildSettings)
             {

@@ -8,8 +8,8 @@ public class FollowCamera : MonoBehaviour
     GameObject target;
     Vector3 offset;
 
-    [SerializeField]
-    float damping = 10f;
+   // [SerializeField]
+   // float damping = 10f;
     [SerializeField]
     float maxPitchAngle = 50;
     [SerializeField]
@@ -74,11 +74,11 @@ public class FollowCamera : MonoBehaviour
         RotationInput();
         ZoomInput();
 
-        float currentY = transform.eulerAngles.y;
+      //  float currentY = transform.eulerAngles.y;
         float desiredY = target.transform.eulerAngles.y;
-        float angleY = Mathf.LerpAngle(currentY, desiredY, Time.deltaTime * damping);
+       // float angleY = Mathf.LerpAngle(currentY, desiredY, Time.deltaTime * damping);
 
-        Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, angleY, 0);
+        Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, desiredY, 0);
 
         transform.position = target.transform.position - (rotation * offset);
         transform.LookAt(target.transform);

@@ -210,6 +210,8 @@ MonoBehaviour:
   maxPitchAngle: 50
   minPitchAngle: -50
   zoomSpeed: 10
+  maxZoomOut: 15
+  minZoomOut: 3
 --- !u!114 &114905333450157224
 MonoBehaviour:
   m_ObjectHideFlags: 1
