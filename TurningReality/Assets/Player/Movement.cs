@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        PathManager.UpdateData(transform.position);
+        PathManager.Instance.UpdateData(transform.position);
         ProcessInput();
     }
 
