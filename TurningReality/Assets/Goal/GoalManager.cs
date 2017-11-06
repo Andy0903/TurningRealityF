@@ -9,6 +9,8 @@ public class GoalManager : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            PathManager.Save();
+
             if (SceneManager.GetActiveScene().buildIndex + 1 <= SceneManager.sceneCountInBuildSettings)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
