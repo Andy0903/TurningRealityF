@@ -61,7 +61,6 @@ public class ButtonRotation : MonoBehaviour
             {
                 if (p == InteractiveObjects[i].GetComponent<Collider>())
                 {
-                    print("Triggered");
                     Triggered = true;
                     return;
                 }

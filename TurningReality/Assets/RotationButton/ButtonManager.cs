@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonManager : MonoBehaviour {
+public class ButtonManager : MonoBehaviour
+{
     GameObject[] buttons;
     GameObject player;
     ButtonRotation currentTrig;
     Transform worldTrans;
     public Color IdleColor, ActiveColor, InActiveColor;
-    int temp = 0;
 
     // Use this for initialization
     void Start()
@@ -31,7 +31,7 @@ public class ButtonManager : MonoBehaviour {
                 {
                     currentTrig.CurrentNrOfRotations = 0;
                     SetKinematic(false, player);
-                    player.transform.eulerAngles = Vector3.zero;
+                    player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
                     currentTrig = null;
                     for (int i = 0; i < buttons.Length; i++)
                     {
