@@ -50,7 +50,14 @@ public class Movement : MonoBehaviour
 
         if (jump && IsGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            if (Input.GetButton("Cheat"))
+            {
+                rb.AddForce(Vector3.up * jumpForce * 3, ForceMode.VelocityChange);
+            }
+            else
+            {
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            }
         }
     }
 
