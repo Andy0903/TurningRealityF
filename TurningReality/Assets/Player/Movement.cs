@@ -9,7 +9,9 @@ public class Movement : MonoBehaviour
     [SerializeField]
     float distanceToGroundOffset = 0.1f;
     [SerializeField]
-    float jumpForce = 6f;
+    public float jumpForce = 6f;
+
+    public float JumpForce { get; set; }
 
     float distanceToGround;
     Rigidbody rb;
