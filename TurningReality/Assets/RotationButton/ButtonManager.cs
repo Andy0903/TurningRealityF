@@ -32,6 +32,7 @@ public class ButtonManager : MonoBehaviour
                     currentTrig.CurrentNrOfRotations = 0;
                     SetKinematic(false, player);
                     player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
+                    player.GetComponent<Movement>().WorldIsRotating = false;
                     currentTrig = null;
                     for (int i = 0; i < buttons.Length; i++)
                     {
@@ -54,6 +55,7 @@ public class ButtonManager : MonoBehaviour
                         currentTrig = buttons[i].GetComponent<ButtonRotation>();
                         currentTrig.Enter(ActiveColor);
                         SetKinematic(true, player);
+                        player.GetComponent<Movement>().WorldIsRotating = true;
                     }
                 }
                 else
