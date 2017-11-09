@@ -11,6 +11,9 @@ public class ButtonRotation : MonoBehaviour
     public int TotalNumberOfRotations = 1; // Set in unity
 
     public int CurrentNrOfRotations { get; set; } // used in manager
+    public Color activeColor { get; set; }
+    public Color idleColor { get; set; }
+    public Color disabledColor { get; set; }
 
     // Give in Units of 1 on a specified axis
     public Vector3[] Axes;
@@ -34,14 +37,27 @@ public class ButtonRotation : MonoBehaviour
 
     public bool Active()
     {
-        if (Vector3.Dot(transform.up, new Vector3(0, 1, 0)) == 1)
+        if (Vector3.Dot(new Vector3(0, 1, 0), transform.up) >= 1)
         {
+            ChangeColor(idleColor);
             return true;
         }
+        ChangeColor(disabledColor);
         return false;
     }
 
-    public bool Exit()
+    public bool AllRotationsTookPlace()
+    {
+        if (CurrentNrOfRotations == TotalNumberOfRotations)
+        {
+            CurrentNrOfRotations = 0;
+            return true;
+        }
+        Enter();
+        return false;
+    }
+
+    public bool ExitCurrentRotation()
     {
         if (accumulateAngle.magnitude >= TiltDegrees[CurrentNrOfRotations - 1])
         {
@@ -68,9 +84,9 @@ public class ButtonRotation : MonoBehaviour
         }
     }
 
-    public void Enter(Color color)
+    public void Enter()
     {
-        GetComponent<Renderer>().material.color = color;
+        ChangeColor(activeColor);
         angleStep = Axes[CurrentNrOfRotations];
         targetAngle = angleStep * TiltDegrees[CurrentNrOfRotations];
         CurrentNrOfRotations++;
@@ -82,7 +98,6 @@ public class ButtonRotation : MonoBehaviour
         {
             accumulateAngle += angleStep;
             worldTrans.Rotate(angleStep, Space.World);
-            print(accumulateAngle);
         }
     }
 
@@ -96,5 +111,10 @@ public class ButtonRotation : MonoBehaviour
         }
         coolDown = startTimer;
         return false;
+    }
+
+    private void ChangeColor(Color color)
+    {
+        GetComponent<Renderer>().material.color = color;
     }
 }

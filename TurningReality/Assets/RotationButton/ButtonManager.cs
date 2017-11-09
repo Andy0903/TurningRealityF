@@ -16,6 +16,13 @@ public class ButtonManager : MonoBehaviour
         worldTrans = GameObject.FindGameObjectWithTag("WorldOrigin").transform;
         buttons = GameObject.FindGameObjectsWithTag("Button");
         player = GameObject.FindGameObjectWithTag("Player");
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            ButtonRotation temp = buttons[i].GetComponent<ButtonRotation>();
+            temp.disabledColor = InActiveColor;
+            temp.activeColor = ActiveColor;
+            temp.idleColor = IdleColor;
+        }
     }
 
     // Update is called once per frame
@@ -25,22 +32,19 @@ public class ButtonManager : MonoBehaviour
         {
             currentTrig.OnRun(worldTrans);
             
-            if (currentTrig.Exit())
+            if (currentTrig.ExitCurrentRotation())
             {
-                if (currentTrig.CurrentNrOfRotations == currentTrig.TotalNumberOfRotations)
+                if (currentTrig.AllRotationsTookPlace())
                 {
                     SetKinematic(false, player);
                     player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
                     player.GetComponent<Movement>().WorldIsRotating = false;
-                    currentTrig.CurrentNrOfRotations = 0;
                     currentTrig = null;
                     for (int i = 0; i < buttons.Length; i++)
                     {
                         buttons[i].GetComponent<ButtonRotation>().Triggered = false;
                     }
                 }
-                else
-                    currentTrig.Enter(ActiveColor);
             }
         }
         else
@@ -49,18 +53,14 @@ public class ButtonManager : MonoBehaviour
             {
                 if (buttons[i].GetComponent<ButtonRotation>().Active())
                 {
-                    buttons[i].GetComponent<Renderer>().material.color = IdleColor;
                     if (buttons[i].GetComponent<ButtonRotation>().Triggered)
                     {
                         currentTrig = buttons[i].GetComponent<ButtonRotation>();
-                        currentTrig.Enter(ActiveColor);
+                        currentTrig.Enter();
                         SetKinematic(true, player);
                         player.GetComponent<Movement>().WorldIsRotating = true;
                     }
                 }
-                else
-                    buttons[i].GetComponent<Renderer>().material.color = InActiveColor;
-
             }
         }
     }
