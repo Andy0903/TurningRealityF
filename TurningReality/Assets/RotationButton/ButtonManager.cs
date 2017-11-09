@@ -24,7 +24,7 @@ public class ButtonManager : MonoBehaviour
         if (currentTrig != null)
         {
             currentTrig.OnRun(worldTrans);
-
+            
             if (currentTrig.Exit())
             {
                 if (currentTrig.CurrentNrOfRotations == currentTrig.TotalNumberOfRotations)
@@ -32,6 +32,7 @@ public class ButtonManager : MonoBehaviour
                     SetKinematic(false, player);
                     player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
                     player.GetComponent<Movement>().WorldIsRotating = false;
+                    currentTrig.CurrentNrOfRotations = 0;
                     currentTrig = null;
                     for (int i = 0; i < buttons.Length; i++)
                     {

@@ -47,7 +47,6 @@ public class ButtonRotation : MonoBehaviour
         {
             accumulateAngle = Vector3.zero;
             coolDown = 0;
-            CurrentNrOfRotations = 0;
             return true;
         }
 
@@ -83,6 +82,7 @@ public class ButtonRotation : MonoBehaviour
         {
             accumulateAngle += angleStep;
             worldTrans.Rotate(angleStep, Space.World);
+            print(accumulateAngle);
         }
     }
 
