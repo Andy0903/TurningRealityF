@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor;
 using UnityEngine;
 
 public class PathLineDrawer : MonoBehaviour
@@ -33,12 +34,15 @@ public class PathLineDrawer : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        for (int i = 0; i < colors.Length; i++)
+        if (EditorApplication.isPlaying)
         {
-            Gizmos.color = colors[i];
-            for (int j = 0; j < positions[i].Count - 1; j++)
+            for (int i = 0; i < colors.Length; i++)
             {
-                Gizmos.DrawLine(positions[i][j], positions[i][j + 1]);
+                Gizmos.color = colors[i];
+                for (int j = 0; j < positions[i].Count - 1; j++)
+                {
+                    Gizmos.DrawLine(positions[i][j], positions[i][j + 1]);
+                }
             }
         }
     }
