@@ -7,10 +7,10 @@ using UnityEngine;
 public class PathLineDrawer : MonoBehaviour
 {
     [SerializeField]
-    Color color = Color.red;
+    Color[] colors;
     [SerializeField]
-    string fileName;
-    static List<SerializableVector3> positions = new List<SerializableVector3>();
+    string[] fileNames;
+    List<List<SerializableVector3>> positions = new List<List<SerializableVector3>>();
 
     void Awake()
     {
@@ -19,21 +19,27 @@ public class PathLineDrawer : MonoBehaviour
 
     private void Load()
     {
-        if (File.Exists(Application.persistentDataPath + "/" + fileName + ".data"))
+        foreach (string fileName in fileNames)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/" + fileName + ".data", FileMode.Open);
-            positions = (List<SerializableVector3>)bf.Deserialize(file);
-            file.Close();
+            if (File.Exists(Application.persistentDataPath + "/" + fileName + ".data"))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Application.persistentDataPath + "/" + fileName + ".data", FileMode.Open);
+                positions.Add((List<SerializableVector3>)bf.Deserialize(file));
+                file.Close();
+            }
         }
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = color;
-        for (int i = 0; i < positions.Count - 1; i++)
+        for (int i = 0; i < colors.Length; i++)
         {
-            Gizmos.DrawLine(positions[i], positions[i + 1]);
+            Gizmos.color = colors[i];
+            for (int j = 0; j < positions[i].Count - 1; j++)
+            {
+                Gizmos.DrawLine(positions[i][j], positions[i][j + 1]);
+            }
         }
     }
 }
