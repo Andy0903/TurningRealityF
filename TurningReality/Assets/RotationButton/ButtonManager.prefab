@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5072fd52df2b2d1418cccdff2efad5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IdleColor: {r: 1, g: 1, b: 1, a: 0}
-  ActiveColor: {r: 0, g: 0.8308824, b: 0.10887435, a: 0}
-  InActiveColor: {r: 0, g: 0, b: 0, a: 0}
+  ActiveColor: {r: 1, g: 1, b: 1, a: 0}
+  TriggeredColor: {r: 0, g: 0.978, b: 0, a: 0}
+  DisabledColor: {r: 0, g: 0, b: 0, a: 0}

@@ -8,7 +8,7 @@ public class ButtonManager : MonoBehaviour
     GameObject player;
     ButtonRotation currentTrig;
     Transform worldTrans;
-    public Color IdleColor, ActiveColor, InActiveColor;
+    public Color ActiveColor, TriggeredColor, DisabledColor;
 
     // Use this for initialization
     void Start()
@@ -19,9 +19,9 @@ public class ButtonManager : MonoBehaviour
         for (int i = 0; i < buttons.Length; i++)
         {
             ButtonRotation temp = buttons[i].GetComponent<ButtonRotation>();
-            temp.disabledColor = InActiveColor;
+            temp.disabledColor = DisabledColor;
+            temp.triggeredColor = TriggeredColor;
             temp.activeColor = ActiveColor;
-            temp.idleColor = IdleColor;
         }
     }
 
@@ -40,10 +40,6 @@ public class ButtonManager : MonoBehaviour
                     player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
                     player.GetComponent<Movement>().WorldIsRotating = false;
                     currentTrig = null;
-                    for (int i = 0; i < buttons.Length; i++)
-                    {
-                        buttons[i].GetComponent<ButtonRotation>().Triggered = false;
-                    }
                 }
             }
         }
@@ -51,12 +47,14 @@ public class ButtonManager : MonoBehaviour
         {
             for (int i = 0; i < buttons.Length; i++)
             {
-                if (buttons[i].GetComponent<ButtonRotation>().Active())
+                ButtonRotation temp = buttons[i].GetComponent<ButtonRotation>();
+                if (temp.Active())
                 {
-                    if (buttons[i].GetComponent<ButtonRotation>().Triggered)
+                    if (temp.Triggered)
                     {
-                        currentTrig = buttons[i].GetComponent<ButtonRotation>();
+                        currentTrig = temp;
                         currentTrig.Enter();
+                        print("Trigg" + Time.time);
                         SetKinematic(true, player);
                         player.GetComponent<Movement>().WorldIsRotating = true;
                     }

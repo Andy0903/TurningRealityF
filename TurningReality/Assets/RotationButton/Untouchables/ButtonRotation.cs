@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ButtonRotation : MonoBehaviour
 {
-    private Vector3 accumulateAngle, angleStep, targetAngle;
+    private Vector3 accumulateAngle, angleStep;
     private float coolDown = 0, startTimer = 0.4f;
     private int cdInterval = 30;
+    private int CurrentNrOfRotations; 
 
     public int TotalNumberOfRotations = 1; // Set in unity
 
-    public int CurrentNrOfRotations { get; set; } // used in manager
+    public Color triggeredColor { get; set; }
     public Color activeColor { get; set; }
-    public Color idleColor { get; set; }
     public Color disabledColor { get; set; }
 
     // Give in Units of 1 on a specified axis
@@ -22,16 +22,16 @@ public class ButtonRotation : MonoBehaviour
     public float[] TiltDegrees;
 
     // Dont mess with it - used in manager
-    public bool Triggered { get; set; }
+    public bool Triggered { get; private set; }
 
     // Add objects that can trigger a rotation here
     public GameObject[] InteractiveObjects;
 
     public void Start()
     {
+        Triggered = false;
         accumulateAngle = Vector3.zero;
-        targetAngle = accumulateAngle;
-        angleStep = accumulateAngle;
+        angleStep = Vector3.zero;
         CurrentNrOfRotations = 0;
     }
 
@@ -39,7 +39,7 @@ public class ButtonRotation : MonoBehaviour
     {
         if (Vector3.Dot(new Vector3(0, 1, 0), transform.up) >= 1)
         {
-            ChangeColor(idleColor);
+            ChangeColor(activeColor);
             return true;
         }
         ChangeColor(disabledColor);
@@ -51,6 +51,7 @@ public class ButtonRotation : MonoBehaviour
         if (CurrentNrOfRotations == TotalNumberOfRotations)
         {
             CurrentNrOfRotations = 0;
+            Triggered = false;
             return true;
         }
         Enter();
@@ -59,9 +60,10 @@ public class ButtonRotation : MonoBehaviour
 
     public bool ExitCurrentRotation()
     {
-        if (accumulateAngle.magnitude >= TiltDegrees[CurrentNrOfRotations - 1])
+        if (accumulateAngle.magnitude >= TiltDegrees[CurrentNrOfRotations])
         {
             accumulateAngle = Vector3.zero;
+            CurrentNrOfRotations++;
             coolDown = 0;
             return true;
         }
@@ -86,10 +88,8 @@ public class ButtonRotation : MonoBehaviour
 
     public void Enter()
     {
-        ChangeColor(activeColor);
+        ChangeColor(triggeredColor);
         angleStep = Axes[CurrentNrOfRotations];
-        targetAngle = angleStep * TiltDegrees[CurrentNrOfRotations];
-        CurrentNrOfRotations++;
     }
 
     public void OnRun(Transform worldTrans)
