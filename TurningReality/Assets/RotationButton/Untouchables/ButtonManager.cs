@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
-    GameObject[] buttons;
-    GameObject player;
+    public Color ActiveColor, TriggeredColor, DisabledColor;
     ButtonRotation currentTrig;
     Transform worldTrans;
-    public Color ActiveColor, TriggeredColor, DisabledColor;
+    GameObject[] buttons;
+    GameObject player;
 
     // Use this for initialization
     void Start()
@@ -30,17 +30,14 @@ public class ButtonManager : MonoBehaviour
     {
         if (currentTrig != null)
         {
-            currentTrig.OnRun(worldTrans);
-            
-            if (currentTrig.ExitCurrentRotation())
+            currentTrig.Running(worldTrans);
+
+            if (currentTrig.Exit())
             {
-                if (currentTrig.AllRotationsTookPlace())
-                {
-                    SetKinematic(false, player);
-                    player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
-                    player.GetComponent<Movement>().WorldIsRotating = false;
-                    currentTrig = null;
-                }
+                SetKinematic(false, player);
+                player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
+                player.GetComponent<Movement>().WorldIsRotating = false;
+                currentTrig = null;
             }
         }
         else
@@ -50,14 +47,10 @@ public class ButtonManager : MonoBehaviour
                 ButtonRotation temp = buttons[i].GetComponent<ButtonRotation>();
                 if (temp.Active())
                 {
-                    if (temp.Triggered)
-                    {
-                        currentTrig = temp;
-                        currentTrig.Enter();
-                        print("Trigg" + Time.time);
-                        SetKinematic(true, player);
-                        player.GetComponent<Movement>().WorldIsRotating = true;
-                    }
+                    currentTrig = temp;
+                    currentTrig.Enter();
+                    SetKinematic(true, player);
+                    player.GetComponent<Movement>().WorldIsRotating = true;
                 }
             }
         }
