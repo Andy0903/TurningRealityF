@@ -47,10 +47,13 @@ public class ButtonManager : MonoBehaviour
                 ButtonRotation temp = buttons[i].GetComponent<ButtonRotation>();
                 if (temp.Active())
                 {
-                    currentTrig = temp;
-                    currentTrig.Enter();
-                    SetKinematic(true, player);
-                    player.GetComponent<Movement>().WorldIsRotating = true;
+                    if (temp.Triggered)
+                    {
+                        currentTrig = temp;
+                        currentTrig.Enter();
+                        SetKinematic(true, player);
+                        player.GetComponent<Movement>().WorldIsRotating = true;
+                    }
                 }
             }
         }

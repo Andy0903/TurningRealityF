@@ -8,7 +8,7 @@ public class ButtonRotation : MonoBehaviour
     private Vector3 accumulateAngle, angleStep;
     private int CurrentNrOfRotations;
     private int cdInterval = 30;
-    private bool triggered;
+    public bool Triggered { get; set; }
 
     public Color triggeredColor { get; set; }
     public Color disabledColor { get; set; }
@@ -25,7 +25,7 @@ public class ButtonRotation : MonoBehaviour
 
     public void Start()
     {
-        triggered = false;
+        Triggered = false;
         accumulateAngle = Vector3.zero;
         angleStep = Vector3.zero;
         CurrentNrOfRotations = 0;
@@ -33,13 +33,13 @@ public class ButtonRotation : MonoBehaviour
 
     private void OnTriggerEnter(Collider p)
     {
-        if (!triggered && Active())
+        if (!Triggered && Active())
         {
             for (int i = 0; i < InteractiveObjects.Length; i++)
             {
                 if (p == InteractiveObjects[i].GetComponent<Collider>())
                 {
-                    triggered = true;
+                    Triggered = true;
                     return;
                 }
             }
@@ -51,8 +51,7 @@ public class ButtonRotation : MonoBehaviour
         if (Vector3.Dot(new Vector3(0, 1, 0), transform.up) >= 1)
         {
             ChangeColor(activeColor);
-            if (triggered)
-                return true;
+            return true;
         }
         else
             ChangeColor(disabledColor);
@@ -85,7 +84,7 @@ public class ButtonRotation : MonoBehaviour
             if (CurrentNrOfRotations == TotalNumberOfRotations)
             {
                 CurrentNrOfRotations = 0;
-                triggered = false;
+                Triggered = false;
                 return true;
             }
             else // There are more rotations in the cycle
