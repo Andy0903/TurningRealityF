@@ -53,7 +53,7 @@ public class GlowObject : MonoBehaviour
 
         if (Physics.Linecast(Camera.main.transform.position, GetComponentInChildren<Renderer>().bounds.center, out hit))
         {
-            if (hit.transform.tag != "Player")
+            if (hit.transform.tag != gameObject.tag)
             {
                 //Debug.Log("Player is occluded by " + hit.transform.name);
                 targetColor = glowColor;
