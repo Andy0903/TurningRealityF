@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GoalManager : MonoBehaviour
 {
+    public bool isUnlocked = true;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && isUnlocked)
         {
             if (PathManager.Instance != null)
             {
