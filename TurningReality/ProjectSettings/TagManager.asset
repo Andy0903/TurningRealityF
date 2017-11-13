@@ -7,6 +7,7 @@ TagManager:
   - Button
   - WorldOrigin
   - PowerUp
+  - GlowObject
   layers:
   - Default
   - TransparentFX
