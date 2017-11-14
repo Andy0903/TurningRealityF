@@ -50,6 +50,12 @@ public class Movement : MonoBehaviour
         bool jump = Input.GetButtonDown("Jump");
 
         Vector3 movement = new Vector3(horizontal, 0, vertical).normalized;
+        if (movement != Vector3.zero)
+        {
+            AudioManager.Instance.Play("Footstep");
+            Debug.Log("PLAYED");
+        }
+
         transform.Translate(movement * speed * Time.deltaTime);
 
         if (jump && IsGrounded)
@@ -69,6 +75,8 @@ public class Movement : MonoBehaviour
     {
         RotationInput();
         if (!WorldIsRotating)
+        {
             TranslationInput();
+        }
     }
 }
