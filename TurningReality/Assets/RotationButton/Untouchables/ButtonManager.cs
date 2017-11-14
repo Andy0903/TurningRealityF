@@ -49,10 +49,12 @@ public class ButtonManager : MonoBehaviour
                 {
                     if (temp.Triggered)
                     {
+                        player.GetComponent<Movement>().WorldIsRotating = true;
+                        player.GetComponent<ObjectPusher>().ForceDropObject();
+
                         currentTrig = temp;
                         currentTrig.Enter();
                         SetKinematic(true, player);
-                        player.GetComponent<Movement>().WorldIsRotating = true;
                     }
                 }
             }
