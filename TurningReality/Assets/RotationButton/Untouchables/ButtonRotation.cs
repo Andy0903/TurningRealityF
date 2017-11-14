@@ -23,6 +23,8 @@ public class ButtonRotation : MonoBehaviour
     // Give in Units of 1 on a specified axis
     public Vector3[] Axes;
 
+    bool cogTickSoundNeedsToPlay = false;
+
     public void Start()
     {
         Triggered = false;
@@ -61,6 +63,9 @@ public class ButtonRotation : MonoBehaviour
 
     public void Enter()
     {
+        AudioManager.Instance.Play("WorldRotationMetalMoan");
+        AudioManager.Instance.Play("WorldRotationMetalThunder");
+        AudioManager.Instance.Play("WorldRotationFastChugging");
         ChangeColor(triggeredColor);
         angleStep = Axes[CurrentNrOfRotations];
     }
@@ -86,6 +91,8 @@ public class ButtonRotation : MonoBehaviour
             {
                 CurrentNrOfRotations = 0;
                 Triggered = false;
+                AudioManager.Instance.Play("WorldRotationCogTick", true);
+                AudioManager.Instance.Stop("WorldRotationFastChugging", 1f);
                 return true;
             }
             else // There are more rotations in the cycle
@@ -98,9 +105,16 @@ public class ButtonRotation : MonoBehaviour
     {
         if (accumulateAngle.magnitude % cdInterval == 0)
         {
+            if (coolDown == startTimer)
+            {
+                AudioManager.Instance.Play("WorldRotationCogTick", true);
+            }
+
             coolDown -= Time.deltaTime;
             if (coolDown > 0)
+            {
                 return true;
+            }
         }
         coolDown = startTimer;
         return false;

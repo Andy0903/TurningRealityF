@@ -19,6 +19,7 @@ public class GoalManager : MonoBehaviour
 
             if (SceneManager.GetActiveScene().buildIndex + 1 <= SceneManager.sceneCountInBuildSettings)
             {
+                AudioManager.Instance.Play("Xylophone");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }

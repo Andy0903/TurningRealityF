@@ -52,7 +52,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.023
+  m_Volume: 0.076
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -168,6 +168,46 @@ MonoBehaviour:
     volume: 0.3
     volumeVariance: 0.1
     pitch: 1
+    pitchVariance: 0
+    loop: 0
+  - name: Xylophone
+    clips:
+    - {fileID: 8300000, guid: dfd2c231ba7f095408d991aaf3dfd540, type: 3}
+    volume: 0.3
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+  - name: WorldRotationCogTick
+    clips:
+    - {fileID: 8300000, guid: 05a4c4ac663b6aa49a27b650e73158d1, type: 3}
+    volume: 0.7
+    volumeVariance: 0.1
+    pitch: 1.05
+    pitchVariance: 0
+    loop: 0
+  - name: WorldRotationMetalMoan
+    clips:
+    - {fileID: 8300000, guid: e26d27effbf3c85469521d2c83e267d4, type: 3}
+    volume: 1
+    volumeVariance: 0.1
+    pitch: 0.65
+    pitchVariance: 0
+    loop: 0
+  - name: WorldRotationMetalThunder
+    clips:
+    - {fileID: 8300000, guid: fbc6a382a6535df4c941cc898c95938b, type: 3}
+    volume: 1
+    volumeVariance: 0.1
+    pitch: 0.65
+    pitchVariance: 0
+    loop: 0
+  - name: WorldRotationFastChugging
+    clips:
+    - {fileID: 8300000, guid: 5eaacf2f689ff0a48a77f56fcd3e815e, type: 3}
+    volume: 1
+    volumeVariance: 0.1
+    pitch: 0.65
     pitchVariance: 0
     loop: 0
   backgroundMusic:
