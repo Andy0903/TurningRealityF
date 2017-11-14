@@ -31,6 +31,7 @@ public class ObjectPusher : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(hitRay, out hit, pickupRange, 1 << 8))
         {
+            AudioManager.Instance.Play("Grab");
             Debug.Log("Finds target!");
             target = hit.transform;
             targetParent = target.parent;
@@ -51,6 +52,7 @@ public class ObjectPusher : MonoBehaviour
 
     private void DropObject()
     {
+        AudioManager.Instance.Play("Drop");
         Debug.Log("Drops object!");
         target.SetParent(targetParent);
         targetParent = null;

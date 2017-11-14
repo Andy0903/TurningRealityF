@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4786559365644332}
-  - component: {fileID: 114988800230898830}
   - component: {fileID: 82823328064727126}
+  - component: {fileID: 114988800230898830}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -141,7 +141,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 86535444ee7c636428022168306b9595, type: 3}
     - {fileID: 8300000, guid: f6572fa7341dc17488519b3fa56cfe36, type: 3}
     - {fileID: 8300000, guid: 5bb787346f50bed40b889e60609bcef0, type: 3}
-    volume: 0.3
+    volume: 0.755
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   - name: Land
     clips:
     - {fileID: 8300000, guid: 7a1ec16b8a349d744a55c2194d64cf8f, type: 3}
-    volume: 0.3
+    volume: 0.404
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0
@@ -224,6 +224,30 @@ MonoBehaviour:
     volume: 0.774
     volumeVariance: 0.1
     pitch: 0.75
+    pitchVariance: 0.1
+    loop: 0
+  - name: Grab
+    clips:
+    - {fileID: 8300000, guid: 72c76d4cff7a25b449ab587e8a6cf8a8, type: 3}
+    volume: 1
+    volumeVariance: 0.1
+    pitch: 2.5
+    pitchVariance: 0.1
+    loop: 0
+  - name: Drop
+    clips:
+    - {fileID: 8300000, guid: 72c76d4cff7a25b449ab587e8a6cf8a8, type: 3}
+    volume: 1
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+  - name: Teleport
+    clips:
+    - {fileID: 8300000, guid: 91aef7716f8b3b94f831c2b0d72ba838, type: 3}
+    volume: 0.246
+    volumeVariance: 0.1
+    pitch: 3
     pitchVariance: 0.1
     loop: 0
   backgroundMusic:

@@ -29,6 +29,8 @@ public class AudioManager : MonoBehaviour
         {
             s.Source = gameObject.AddComponent<AudioSource>();
             s.Source.clip = s.clips[0];
+            s.Source.volume = s.volume;
+            s.Source.pitch = s.pitch;
             s.Source.loop = s.loop;
         }
     }
@@ -49,16 +51,22 @@ public class AudioManager : MonoBehaviour
 
         if (s.Source.isPlaying == false && isOneShot == false)
         {
-            s.Source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-            s.Source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
-            s.Source.clip = s.clips[UnityEngine.Random.Range(0, s.clips.Length)];
+            ShuffleAudioSettings(ref s);
             s.Source.Play();
         }
 
         if (isOneShot)
         {
+            ShuffleAudioSettings(ref s);
             s.Source.PlayOneShot(s.Source.clip);
         }
+    }
+
+    private void ShuffleAudioSettings(ref Sound s)
+    {
+        s.Source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        s.Source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+        s.Source.clip = s.clips[UnityEngine.Random.Range(0, s.clips.Length)];
     }
 
     public void Stop(string sound, float delayTimeSeconds = 0)

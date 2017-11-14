@@ -13,6 +13,7 @@ public class Teleport : MonoBehaviour
         {
             if (Input.GetButtonDown("Interact"))
             {
+                AudioManager.Instance.Play("Teleport", true);
                 other.transform.position = leadsTo.position;
             }
         }
