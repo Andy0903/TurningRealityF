@@ -8,11 +8,9 @@ public class Movement : MonoBehaviour
     float speed = 4f;
     [SerializeField]
     float distanceToGroundOffset = 0.1f;
-    [SerializeField]
     public float jumpForce = 6f;
 
-    public float JumpForce { get; set; }
-
+    public bool HoldsObject { get; set; }
     public bool WorldIsRotating { get; set; }
 
     float distanceToGround;
@@ -54,6 +52,16 @@ public class Movement : MonoBehaviour
         if (movement != Vector3.zero && IsGrounded)
         {
             AudioManager.Instance.Play("Footstep");
+            if (HoldsObject)
+            {
+                AudioManager.Instance.Play("DragOnFloor");
+                AudioManager.Instance.Play("DragOnFloor2");
+            }
+        }
+        else
+        {
+            AudioManager.Instance.Stop("DragOnFloor");
+            AudioManager.Instance.Stop("DragOnFloor2");
         }
 
         transform.Translate(movement * speed * Time.deltaTime);

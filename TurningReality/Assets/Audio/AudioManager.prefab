@@ -210,6 +210,22 @@ MonoBehaviour:
     pitch: 0.65
     pitchVariance: 0
     loop: 0
+  - name: DragOnFloor
+    clips:
+    - {fileID: 8300000, guid: 466f6fe06f92cc649a851adc797ccd05, type: 3}
+    volume: 0.491
+    volumeVariance: 0.3
+    pitch: 0.47
+    pitchVariance: 0.15
+    loop: 1
+  - name: DragOnFloor2
+    clips:
+    - {fileID: 8300000, guid: 08688734d9cfb284f8bdec2d0ab1e074, type: 3}
+    volume: 0.774
+    volumeVariance: 0.1
+    pitch: 0.75
+    pitchVariance: 0.1
+    loop: 0
   backgroundMusic:
   - {fileID: 8300000, guid: d0166b36f2634b8488f7a7211aaf8f63, type: 3}
   - {fileID: 8300000, guid: 571ea66039e11cb4284670fb1016b47d, type: 3}

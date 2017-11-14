@@ -39,6 +39,7 @@ public class ObjectPusher : MonoBehaviour
             oldKinimaticState = target.gameObject.GetComponent<Rigidbody>().isKinematic;
             target.gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
+            GetComponent<Movement>().HoldsObject = true;
             target.SetParent(transform);
             FixedJoint joint = target.gameObject.AddComponent<FixedJoint>();
             joint.connectedBody = gameObject.GetComponent<Rigidbody>();
@@ -56,6 +57,7 @@ public class ObjectPusher : MonoBehaviour
         target.gameObject.GetComponent<Rigidbody>().isKinematic = oldKinimaticState;
         Destroy(target.gameObject.GetComponent<FixedJoint>());
         target = null;
+        GetComponent<Movement>().HoldsObject = false;
     }
 
     private void Update()
