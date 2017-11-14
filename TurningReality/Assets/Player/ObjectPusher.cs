@@ -18,6 +18,12 @@ public class ObjectPusher : MonoBehaviour
 
     bool oldKinimaticState;
 
+    public void ForceDropObject()
+    {
+        if (target != null)
+            DropObject();
+    }
+
     private void CastRay()
     {
         Ray hitRay = new Ray(transform.position - rayOffset, transform.forward);
