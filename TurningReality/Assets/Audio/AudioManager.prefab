@@ -52,7 +52,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.023
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -141,6 +141,22 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 86535444ee7c636428022168306b9595, type: 3}
     - {fileID: 8300000, guid: f6572fa7341dc17488519b3fa56cfe36, type: 3}
     - {fileID: 8300000, guid: 5bb787346f50bed40b889e60609bcef0, type: 3}
+    volume: 0.3
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+  - name: Jump
+    clips:
+    - {fileID: 8300000, guid: 5b6938f8b2ba8bb4f88d80e6e81351a2, type: 3}
+    volume: 1
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+  - name: Land
+    clips:
+    - {fileID: 8300000, guid: 7a1ec16b8a349d744a55c2194d64cf8f, type: 3}
     volume: 0.3
     volumeVariance: 0.1
     pitch: 1

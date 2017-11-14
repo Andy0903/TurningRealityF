@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
     float distanceToGround;
     Rigidbody rb;
 
+    bool inAir;
     bool IsGrounded { get { return Physics.Raycast(transform.position, Vector3.down, distanceToGround + distanceToGroundOffset); } }
 
     void Awake()
@@ -50,16 +51,16 @@ public class Movement : MonoBehaviour
         bool jump = Input.GetButtonDown("Jump");
 
         Vector3 movement = new Vector3(horizontal, 0, vertical).normalized;
-        if (movement != Vector3.zero)
+        if (movement != Vector3.zero && IsGrounded)
         {
             AudioManager.Instance.Play("Footstep");
-            Debug.Log("PLAYED");
         }
 
         transform.Translate(movement * speed * Time.deltaTime);
 
         if (jump && IsGrounded)
         {
+            AudioManager.Instance.Play("Jump");
             if (Input.GetButton("Cheat"))
             {
                 rb.AddForce(Vector3.up * jumpForce * 3, ForceMode.VelocityChange);
@@ -69,6 +70,12 @@ public class Movement : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             }
         }
+
+        if (inAir && IsGrounded)
+        {
+            AudioManager.Instance.Play("Land");
+        }
+        inAir = !IsGrounded;
     }
 
     void ProcessInput()
