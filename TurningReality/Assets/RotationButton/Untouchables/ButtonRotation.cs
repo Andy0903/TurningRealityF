@@ -35,6 +35,7 @@ public class ButtonRotation : MonoBehaviour
     {
         if (!Triggered && Active())
         {
+            AudioManager.Instance.Play("ButtonPress");
             for (int i = 0; i < InteractiveObjects.Length; i++)
             {
                 if (p == InteractiveObjects[i].GetComponent<Collider>())

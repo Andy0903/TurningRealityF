@@ -162,6 +162,14 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 0
+  - name: ButtonPress
+    clips:
+    - {fileID: 8300000, guid: 8ada1ffbd1ccf4746be228ccf96e1467, type: 3}
+    volume: 0.3
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
   backgroundMusic:
   - {fileID: 8300000, guid: d0166b36f2634b8488f7a7211aaf8f63, type: 3}
   - {fileID: 8300000, guid: 571ea66039e11cb4284670fb1016b47d, type: 3}
