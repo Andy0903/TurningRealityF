@@ -267,6 +267,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c26c149576705347bf6ac98e21db977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PerspectiveRange: 0.3
+  Transparancy: 1
+--- !u!84 &286772655
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 1144
+  m_Height: 350
+  m_AntiAliasing: 2
+  m_DepthFormat: 2
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &298058773 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4594732285173360, guid: cfb05ae23a9bab143b6456daaff4c123,
@@ -566,38 +595,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c26c149576705347bf6ac98e21db977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PerspectiveRange: 0.3
+  Transparancy: 1
 --- !u!4 &471240174 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4594732285173360, guid: cfb05ae23a9bab143b6456daaff4c123,
     type: 2}
   m_PrefabInternal: {fileID: 444348145}
---- !u!84 &471863280
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 838
-  m_Height: 521
-  m_AntiAliasing: 2
-  m_DepthFormat: 2
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &520978733
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +803,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4322350978695548, guid: 732b04a9748a30d498a888bf1e8f9cef, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114229378021516992, guid: 732b04a9748a30d498a888bf1e8f9cef,
         type: 2}
@@ -892,7 +896,7 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1231238198}
+      objectReference: {fileID: 286772655}
     - target: {fileID: 114640184557760474, guid: c00fb3cb97e379046875726a7ea20782,
         type: 2}
       propertyPath: target
@@ -1396,6 +1400,33 @@ Transform:
   m_Father: {fileID: 1131083134}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &980878373
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 838
+  m_Height: 521
+  m_AntiAliasing: 2
+  m_DepthFormat: 2
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &1034163506 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4594732285173360, guid: cfb05ae23a9bab143b6456daaff4c123,
@@ -1545,33 +1576,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4298537787238146, guid: becea8e15166e6049b8cfc57c958f0da,
     type: 2}
   m_PrefabInternal: {fileID: 395649326}
---- !u!84 &1231238198
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 640
-  m_Height: 480
-  m_AntiAliasing: 2
-  m_DepthFormat: 2
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1315240495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,7 +1721,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1490330692
 GameObject:
@@ -1895,6 +1899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c26c149576705347bf6ac98e21db977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PerspectiveRange: 0.3
+  Transparancy: 1
 --- !u!1 &1503704098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,6 +1995,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c26c149576705347bf6ac98e21db977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PerspectiveRange: 0.3
+  Transparancy: 1
 --- !u!1001 &1656082956
 Prefab:
   m_ObjectHideFlags: 0
@@ -2125,6 +2133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c26c149576705347bf6ac98e21db977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PerspectiveRange: 0.3
+  Transparancy: 1
 --- !u!1 &1816456262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,6 +2229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c26c149576705347bf6ac98e21db977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PerspectiveRange: 0.3
+  Transparancy: 1
 --- !u!1 &1845540614
 GameObject:
   m_ObjectHideFlags: 0

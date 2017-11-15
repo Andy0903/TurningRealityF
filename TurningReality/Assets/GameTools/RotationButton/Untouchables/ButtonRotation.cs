@@ -35,7 +35,7 @@ public class ButtonRotation : MonoBehaviour
 
     private void OnTriggerEnter(Collider p)
     {
-        if (!Triggered && Active() && p.tag == "Player")
+        if (!Triggered && Active() /*&& p.tag == "Player"*/) // collidern behövs inte, kommer inte kunna använda andra object annars (se interactiveobjects)
         {
             AudioManager.Instance.Play("ButtonPress");
             for (int i = 0; i < InteractiveObjects.Length; i++)
@@ -74,8 +74,8 @@ public class ButtonRotation : MonoBehaviour
     {
         if (!MustCoolDown())
         {
-            accumulateAngle += angleStep;
-            worldTrans.Rotate(angleStep, Space.World);
+            accumulateAngle += angleStep * 0.5f;
+            worldTrans.Rotate(angleStep * 0.5f, Space.World);
         }
     }
 
