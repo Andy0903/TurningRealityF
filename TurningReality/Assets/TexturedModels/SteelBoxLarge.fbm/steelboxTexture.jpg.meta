@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 guid: 75e3785e75c30554892a809682a2daaf
+<<<<<<< HEAD
 timeCreated: 1510918423
+=======
+timeCreated: 1510917951
+>>>>>>> Hampus-b
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}

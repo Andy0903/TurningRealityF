@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ee15f534af3638f48bdcc63deb222e21
 folderAsset: yes
 timeCreated: 1510919542
+=======
+guid: 7e48bf8135ea58d40b749d947f3add73
+folderAsset: yes
+timeCreated: 1510918897
+>>>>>>> Hampus-b
 licenseType: Free
 DefaultImporter:
   userData: 

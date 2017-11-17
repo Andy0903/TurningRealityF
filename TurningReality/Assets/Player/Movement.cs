@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     public float jumpForce = 6f;
 
     public bool HoldsObject { get; set; }
-    public bool WorldIsRotating { get; set; }
+    public bool StopTranslation { get; set; }
 
     float distanceToGround;
     Rigidbody rb;
@@ -89,7 +89,7 @@ public class Movement : MonoBehaviour
     void ProcessInput()
     {
         RotationInput();
-        if (!WorldIsRotating)
+        if (!StopTranslation)
         {
             TranslationInput();
         }

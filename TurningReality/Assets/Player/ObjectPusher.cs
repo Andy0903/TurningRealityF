@@ -32,7 +32,7 @@ public class ObjectPusher : MonoBehaviour
         if (Physics.Raycast(hitRay, out hit, pickupRange, 1 << 8))
         {
             AudioManager.Instance.Play("Grab");
-            Debug.Log("Finds target!");
+            //Debug.Log("Finds target!");
             target = hit.transform;
             targetParent = target.parent;
 
@@ -47,13 +47,13 @@ public class ObjectPusher : MonoBehaviour
             joint.breakForce = Mathf.Infinity;
             joint.breakTorque = Mathf.Infinity;
         }
-        Debug.Log("Misses target!");
+        //Debug.Log("Misses target!");
     }
 
     private void DropObject()
     {
         AudioManager.Instance.Play("Drop");
-        Debug.Log("Drops object!");
+        //Debug.Log("Drops object!");
         target.SetParent(targetParent);
         targetParent = null;
         target.gameObject.GetComponent<Rigidbody>().isKinematic = oldKinimaticState;
@@ -87,7 +87,7 @@ public class ObjectPusher : MonoBehaviour
         {
             if (target == null)
             {
-                Debug.Log("Casts ray!");
+                //Debug.Log("Casts ray!");
                 CastRay();
             }
             else

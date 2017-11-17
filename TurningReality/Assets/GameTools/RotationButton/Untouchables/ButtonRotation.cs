@@ -35,13 +35,13 @@ public class ButtonRotation : MonoBehaviour
 
     private void OnTriggerEnter(Collider p)
     {
-        if (!Triggered && Active() /*&& p.tag == "Player"*/) // collidern behövs inte, kommer inte kunna använda andra object annars (se interactiveobjects)
+        if (!Triggered && Active())
         {
-            AudioManager.Instance.Play("ButtonPress");
             for (int i = 0; i < InteractiveObjects.Length; i++)
             {
                 if (p == InteractiveObjects[i].GetComponent<Collider>())
                 {
+                    AudioManager.Instance.Play("ButtonPress");
                     Triggered = true;
                     return;
                 }
