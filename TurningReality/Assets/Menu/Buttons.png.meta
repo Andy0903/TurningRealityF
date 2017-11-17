@@ -1,9 +1,13 @@
 fileFormatVersion: 2
-guid: fc9da2dcc6a267a46a73d3f91504508c
-timeCreated: 1510865019
+guid: e036d5d2dfb2ebf4e84492f7e6b687c0
+timeCreated: 1510902367
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: BrownButton
+    21300002: SillverButton14
+    21300004: BrownButton2
+    21300006: SilverButton2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -39,11 +43,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.4956833, y: 0.51988566}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
@@ -81,7 +85,63 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BrownButton
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 49
+        width: 94
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SillverButton14
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 49
+        width: 95
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BrownButton2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 5
+        width: 94
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SilverButton2
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 5
+        width: 94
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
