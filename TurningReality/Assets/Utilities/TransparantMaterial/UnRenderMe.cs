@@ -17,6 +17,7 @@ public class UnRenderMe : MonoBehaviour
     {
         // Stores the initial color
         startColor = gameObject.GetComponent<Renderer>().material.color;
+        currColor = startColor;
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 

@@ -8,6 +8,8 @@ TagManager:
   - WorldOrigin
   - PowerUp
   - GlowObject
+  - PuzzlePiece
+  - PuzzlePieceHolder
   layers:
   - Default
   - TransparentFX

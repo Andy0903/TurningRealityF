@@ -41,7 +41,7 @@ public class ButtonManager : MonoBehaviour
                 {
                     SetKinematic(false, player);
                     player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
-                    player.GetComponent<Movement>().WorldIsRotating = false;
+                    player.GetComponent<Movement>().StopTranslation = false;
                     currentTrig = null;
                     playerInPosition = false;
                 }
@@ -58,7 +58,7 @@ public class ButtonManager : MonoBehaviour
                 {
                     if (temp.Triggered)
                     {
-                        player.GetComponent<Movement>().WorldIsRotating = true;
+                        player.GetComponent<Movement>().StopTranslation = true;
                         player.GetComponent<ObjectPusher>().ForceDropObject();
                         currentTrig = temp;
                         LevitatePos = new Vector3(temp.transform.position.x, temp.transform.position.y + 2, temp.transform.position.z);
