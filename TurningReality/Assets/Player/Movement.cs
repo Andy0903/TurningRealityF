@@ -57,7 +57,6 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isGrounded);
         ProcessInput();
     }
 
