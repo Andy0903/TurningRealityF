@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf1e5eb5afded047b3e060ed99c6e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Pathpointprefab: {fileID: 1715236490727550, guid: 526b8aedbb4c8784fa29b9685388853e,
+    type: 2}
   colors:
   - {r: 0.31617647, g: 0.027897932, b: 0.027897932, a: 1}
   - {r: 0, g: 0.41911763, b: 0.17631842, a: 1}

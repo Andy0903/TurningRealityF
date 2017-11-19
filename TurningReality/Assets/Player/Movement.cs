@@ -21,17 +21,24 @@ public class Movement : MonoBehaviour
 
     void Awake()
     {
+        if (PathManager.Instance != null)
+        {
+            const int savePositionTime = 1;
+            InvokeRepeating("UpdatePathManagerData", savePositionTime, savePositionTime);
+        }
+
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        if (PathManager.Instance != null)
-        {
-            PathManager.Instance.UpdateData(transform.localPosition);
-        }
         ProcessInput();
+    }
+
+    void UpdatePathManagerData()
+    {
+        PathManager.Instance.UpdateData(transform.localPosition);
     }
 
     void RotationInput()
