@@ -10,9 +10,12 @@ public class GlowComposite : MonoBehaviour
 
     private Material compositeMaterial;
 
+    [SerializeField]
+    Shader glowComposite;
+
     private void OnEnable()
     {
-        compositeMaterial = new Material(Shader.Find("Hidden/GlowComposite"));
+        compositeMaterial = new Material(glowComposite);
     }
 
     private void OnRenderImage(RenderTexture aSource, RenderTexture aDestination)

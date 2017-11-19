@@ -11,6 +11,11 @@ public class GlowPrePass : MonoBehaviour
 
     private Material blurMaterial;
 
+    [SerializeField]
+    Shader glowReplaceShader;
+    [SerializeField]
+    Shader blurShader;
+
     private void OnEnable()
     {
         preePass = new RenderTexture(Screen.width, Screen.height, 24);
@@ -18,14 +23,14 @@ public class GlowPrePass : MonoBehaviour
         blurred = new RenderTexture(Screen.width / 2, Screen.height / 2, 0);
 
         Camera camera = GetComponent<Camera>();
-        Shader glowShader = Shader.Find("Hidden/GlowReplace");
+        //Shader glowShader = Shader.Find("Hidden/GlowReplace");
         camera.targetTexture = preePass;
-        camera.SetReplacementShader(glowShader, "Glowable");
+        camera.SetReplacementShader(glowReplaceShader, "Glowable");
         Shader.SetGlobalTexture("_GlowPrePassTex", preePass);
 
         Shader.SetGlobalTexture("_GlowBlurredTex", blurred);
 
-        blurMaterial = new Material(Shader.Find("Hidden/Blur"));
+        blurMaterial = new Material(blurShader);
         blurMaterial.SetVector("_BlurSize", new Vector2(blurred.texelSize.x * 1.5f, blurred.texelSize.y * 1.5f));
     }
 

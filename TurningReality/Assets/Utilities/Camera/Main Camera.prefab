@@ -430,6 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f34d5064389b5f4da236be3157bed4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  glowReplaceShader: {fileID: 4800000, guid: 75e4949c82e61ba40a1d8f4f971e0715, type: 3}
+  blurShader: {fileID: 4800000, guid: 2e58deb759d332a4b90bf6e9e2de7906, type: 3}
 --- !u!114 &114640184557760474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -459,6 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intensity: 2
+  glowComposite: {fileID: 4800000, guid: b1d088df72913fb4881fa37b620e4cb3, type: 3}
 --- !u!114 &114908133274915162
 MonoBehaviour:
   m_ObjectHideFlags: 1

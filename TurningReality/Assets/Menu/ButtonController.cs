@@ -17,7 +17,7 @@ public class ButtonController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(1);
         }
         else if (Input.GetButtonDown("Controls"))
         {
