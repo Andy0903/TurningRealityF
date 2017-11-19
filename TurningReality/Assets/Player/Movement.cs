@@ -27,6 +27,14 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (isGrounded == false)
+        {
+            isGrounded = true;
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         isGrounded = false;
@@ -46,6 +54,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(isGrounded);
         ProcessInput();
     }
 
@@ -86,7 +95,7 @@ public class Movement : MonoBehaviour
 
         transform.Translate(movement * speed * Time.deltaTime);
 
-        if (jump && isGrounded)
+        if (jump && isGrounded && !HoldsObject)
         {
             AudioManager.Instance.Play("Jump");
             if (Input.GetButton("Cheat"))
