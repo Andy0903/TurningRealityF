@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -9,12 +10,15 @@ public class PathManager : MonoBehaviour
 {
     public static PathManager Instance { get; private set; }
 
+    static Guid guid;
     static List<SerializableVector3> positions = new List<SerializableVector3>();
     string fileName = "/PlayerPath";
     [SerializeField]
     bool activated = true;
     [SerializeField]
     float saveIntervalTime = 10f;
+
+    int lastSavedBuildIndex = -1;
 
     private void Awake()
     {
@@ -25,7 +29,6 @@ public class PathManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
         InvokeRepeating("Save", saveIntervalTime, saveIntervalTime);
     }
 
@@ -38,11 +41,19 @@ public class PathManager : MonoBehaviour
     public void Save()
     {
         if (activated == false) return;
+
+        if (lastSavedBuildIndex != SceneManager.GetActiveScene().buildIndex)
+        {
+            guid = Guid.NewGuid();
+        }
+
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + fileName + " Build_ " + SceneManager.GetActiveScene().buildIndex + " Time_ " + System.DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".data");
+        FileStream file = File.Create(Application.persistentDataPath + fileName + "Build_" + SceneManager.GetActiveScene().buildIndex + "ID_" + guid.ToString() + ".data");
 
         bf.Serialize(file, positions);
         file.Close();
+
+        lastSavedBuildIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void Clear()
