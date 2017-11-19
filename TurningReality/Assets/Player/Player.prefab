@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 114115285943937224}
   - component: {fileID: 114387242377705310}
   - component: {fileID: 114331828247812406}
+  - component: {fileID: 136307223735524716}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2156,7 +2157,7 @@ Transform:
   m_GameObject: {fileID: 1242909003221804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 21.367, y: -29.47, z: 15}
-  m_LocalScale: {x: 2.3401437, y: 2.340144, z: 2.340144}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4837292965956668}
   - {fileID: 4596276019197536}
@@ -2362,7 +2363,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1447250128704520}
-  m_LocalRotation: {x: 0.53267515, y: 0.07034045, z: 0.83613265, w: -0.11041513}
+  m_LocalRotation: {x: 0.5326752, y: 0.070340455, z: 0.83613276, w: -0.110415146}
   m_LocalPosition: {x: 0.000022271464, y: -0.00006150465, z: 0.026027026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2562,12 +2563,25 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1242909003221804}
   m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136307223735524716
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1242909003221804}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.6
+  m_Radius: 0.2
+  m_Height: 1.5704641
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 0.78523207, z: 0}
 --- !u!137 &137020441876877044
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

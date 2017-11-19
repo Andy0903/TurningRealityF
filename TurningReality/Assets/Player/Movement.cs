@@ -17,12 +17,20 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
 
     bool inAir;
-    bool IsGrounded {
-        get
+    bool isGrounded;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Collider>().isTrigger == false)
         {
-            Debug.DrawLine(transform.position, transform.position - Vector3.down * (distanceToGround + distanceToGroundOffset), Color.yellow, 3);
-            Debug.Log(distanceToGround);
-            return Physics.Raycast(transform.position, Vector3.down, distanceToGround + distanceToGroundOffset); } }
+            isGrounded = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isGrounded = false;
+    }
 
     void Awake()
     {
@@ -32,7 +40,7 @@ public class Movement : MonoBehaviour
             InvokeRepeating("UpdatePathManagerData", savePositionTime, savePositionTime);
         }
 
-        distanceToGround = GetComponent<Collider>().bounds.extents.y / transform.lossyScale.y;
+        distanceToGround = GetComponent<Collider>().bounds.extents.y;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -61,7 +69,7 @@ public class Movement : MonoBehaviour
         bool jump = Input.GetButtonDown("Jump");
 
         Vector3 movement = new Vector3(horizontal, 0, vertical).normalized;
-        if (movement != Vector3.zero && IsGrounded)
+        if (movement != Vector3.zero && isGrounded)
         {
             AudioManager.Instance.Play("Footstep");
             if (HoldsObject)
@@ -78,7 +86,7 @@ public class Movement : MonoBehaviour
 
         transform.Translate(movement * speed * Time.deltaTime);
 
-        if (jump && IsGrounded)
+        if (jump && isGrounded)
         {
             AudioManager.Instance.Play("Jump");
             if (Input.GetButton("Cheat"))
@@ -91,11 +99,11 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if (inAir && IsGrounded)
+        if (inAir && isGrounded)
         {
             AudioManager.Instance.Play("Land");
         }
-        inAir = !IsGrounded;
+        inAir = !isGrounded;
     }
 
     void ProcessInput()
