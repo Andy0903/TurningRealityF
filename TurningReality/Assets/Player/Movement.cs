@@ -17,7 +17,12 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
 
     bool inAir;
-    bool IsGrounded { get { return Physics.Raycast(transform.position, Vector3.down, distanceToGround + distanceToGroundOffset); } }
+    bool IsGrounded {
+        get
+        {
+            Debug.DrawLine(transform.position, transform.position - Vector3.down * (distanceToGround + distanceToGroundOffset), Color.yellow, 3);
+            Debug.Log(distanceToGround);
+            return Physics.Raycast(transform.position, Vector3.down, distanceToGround + distanceToGroundOffset); } }
 
     void Awake()
     {
@@ -27,7 +32,7 @@ public class Movement : MonoBehaviour
             InvokeRepeating("UpdatePathManagerData", savePositionTime, savePositionTime);
         }
 
-        distanceToGround = GetComponent<Collider>().bounds.extents.y;
+        distanceToGround = GetComponent<Collider>().bounds.extents.y / transform.lossyScale.y;
         rb = GetComponent<Rigidbody>();
     }
 
