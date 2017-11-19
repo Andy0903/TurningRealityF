@@ -24,6 +24,7 @@ public class FollowCamera : MonoBehaviour
 
     private void Start()
     {
+        transform.position = new Vector3(transform.position.x, target.transform.position.y, transform.position.z);
         offset = target.transform.position - transform.position;
     }
 
