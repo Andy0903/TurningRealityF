@@ -53,10 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pathpointprefab: {fileID: 1715236490727550, guid: 526b8aedbb4c8784fa29b9685388853e,
     type: 2}
-  colors:
-  - {r: 0.31617647, g: 0.027897932, b: 0.027897932, a: 1}
-  - {r: 0, g: 0.41911763, b: 0.17631842, a: 1}
-  fileNames:
-  - PlayerPath Build_ 4 Time_ 2017-19-11--02-24-30
-  - PlayerPath Build_ 4 Time_ 2017-19-11--02-32-55
-  - PlayerPath Build_ 4 Time_ 2017-19-11--02-32-55
+  colors: []
+  fileNames: []
