@@ -51,3 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf1e5eb5afded047b3e060ed99c6e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.31617647, g: 0.027897932, b: 0.027897932, a: 1}
+  - {r: 0, g: 0.41911763, b: 0.17631842, a: 1}
+  fileNames:
+  - PlayerPath Build_ 4 Time_ 2017-19-11--02-24-30
+  - PlayerPath Build_ 4 Time_ 2017-19-11--02-32-55
+  - PlayerPath Build_ 4 Time_ 2017-19-11--02-32-55

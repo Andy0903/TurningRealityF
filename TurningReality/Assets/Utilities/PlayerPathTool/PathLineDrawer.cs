@@ -11,7 +11,7 @@ public class PathLineDrawer : MonoBehaviour
     Color[] colors;
     [SerializeField]
     string[] fileNames;
-    List<List<SerializableVector3>> positions = new List<List<SerializableVector3>>();
+    List<List<SerializableVector3>> positions = new List<List<SerializableVector3>>();   //AllFiles, AllPositions.. 2D
 
     void Awake()
     {
@@ -36,9 +36,10 @@ public class PathLineDrawer : MonoBehaviour
     {
         if (EditorApplication.isPlaying)
         {
-            for (int i = 0; i < colors.Length; i++)
+            for (int i = 0; i < positions.Count; i++)
             {
-                Gizmos.color = colors[i];
+                Gizmos.color = colors[i % colors.Length];
+                Debug.Log(Gizmos.color);
                 for (int j = 0; j < positions[i].Count - 1; j++)
                 {
                     Gizmos.DrawLine(positions[i][j], positions[i][j + 1]);

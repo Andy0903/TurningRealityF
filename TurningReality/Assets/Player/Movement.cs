@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     {
         if (PathManager.Instance != null)
         {
-            PathManager.Instance.UpdateData(transform.position);
+            PathManager.Instance.UpdateData(transform.localPosition);
         }
         ProcessInput();
     }
