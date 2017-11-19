@@ -16,6 +16,8 @@ public class Movement : MonoBehaviour
     float distanceToGround;
     Rigidbody rb;
 
+    Animator animator;
+
     bool inAir;
     bool isGrounded;
 
@@ -50,6 +52,7 @@ public class Movement : MonoBehaviour
 
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -80,6 +83,7 @@ public class Movement : MonoBehaviour
         Vector3 movement = new Vector3(horizontal, 0, vertical).normalized;
         if (movement != Vector3.zero && isGrounded)
         {
+            animator.SetFloat("Forward", 0.5f);
             AudioManager.Instance.Play("Footstep");
             if (HoldsObject)
             {
@@ -91,6 +95,8 @@ public class Movement : MonoBehaviour
         {
             AudioManager.Instance.Stop("DragOnFloor");
             AudioManager.Instance.Stop("DragOnFloor2");
+
+            animator.SetFloat("Forward", 0);
         }
 
         transform.Translate(movement * speed * Time.deltaTime);
@@ -106,6 +112,14 @@ public class Movement : MonoBehaviour
             AudioManager.Instance.Play("Land");
         }
         inAir = !isGrounded;
+        if (inAir)
+        {
+            animator.SetBool("OnGround", false);
+        }
+        else
+        {
+            animator.SetBool("OnGround", true);
+        }
     }
 
     void ProcessInput()
