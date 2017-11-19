@@ -98,14 +98,7 @@ public class Movement : MonoBehaviour
         if (jump && isGrounded && !HoldsObject)
         {
             AudioManager.Instance.Play("Jump");
-            if (Input.GetButton("Cheat"))
-            {
-                rb.AddForce(Vector3.up * jumpForce * 3, ForceMode.VelocityChange);
-            }
-            else
-            {
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
-            }
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
 
         if (inAir && isGrounded)
