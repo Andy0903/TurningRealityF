@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalNumberOfRotations: 1
-  Axes: []
-  TiltDegrees: []
   InteractiveObjects:
   - {fileID: 0}
+  TiltDegrees: []
+  Axes: []
