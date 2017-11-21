@@ -13,6 +13,7 @@ public class ButtonRotation : MonoBehaviour
     public Color triggeredColor { get; set; }
     public Color disabledColor { get; set; }
     public Color activeColor { get; set; }
+    public GameObject interactedObj { get; private set; }
 
     //Unity accessibles
     public int TotalNumberOfRotations = 1; // Set in unity
@@ -42,6 +43,7 @@ public class ButtonRotation : MonoBehaviour
                 if (p == InteractiveObjects[i].GetComponent<Collider>())
                 {
                     AudioManager.Instance.Play("ButtonPress");
+                    interactedObj = InteractiveObjects[i];
                     Triggered = true;
                     return;
                 }

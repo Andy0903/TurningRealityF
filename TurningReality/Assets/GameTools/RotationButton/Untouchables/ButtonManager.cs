@@ -8,17 +8,17 @@ public class ButtonManager : MonoBehaviour
     ButtonRotation currentTrig;
     Transform worldTrans;
     GameObject[] buttons;
-    GameObject player;
+    GameObject currObj;
     Vector3 LevitatePos;
 
-    bool playerInPosition = false;
+    bool objInPosition = false;
 
     // Use this for initialization
     void Start()
     {
         worldTrans = GameObject.FindGameObjectWithTag("WorldOrigin").transform;
         buttons = GameObject.FindGameObjectsWithTag("Button");
-        player = GameObject.FindGameObjectWithTag("Player");
+
         for (int i = 0; i < buttons.Length; i++)
         {
             ButtonRotation temp = buttons[i].GetComponent<ButtonRotation>();
@@ -33,21 +33,21 @@ public class ButtonManager : MonoBehaviour
     {
         if (currentTrig != null)
         {
-            if (playerInPosition)
+            if (objInPosition)
             {
                 currentTrig.Running(worldTrans);
 
                 if (currentTrig.Exit())
                 {
-                    SetKinematic(false, player);
-                    player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
-                    player.GetComponent<Movement>().StopTranslation = false;
+                    SetKinematic(false, currObj);
+                    currObj.transform.eulerAngles = new Vector3(0, currObj.transform.eulerAngles.y, 0);
+                    currObj.GetComponent<Movement>().StopTranslation = false;
                     currentTrig = null;
-                    playerInPosition = false;
+                    objInPosition = false;
                 }
             }
             else
-                PlayerLevitates();
+                ObjectLevitates();
         }
         else
         {
@@ -58,24 +58,25 @@ public class ButtonManager : MonoBehaviour
                 {
                     if (temp.Triggered)
                     {
-                        player.GetComponent<Movement>().StopTranslation = true;
-                        player.GetComponent<ObjectPusher>().ForceDropObject();
                         currentTrig = temp;
+                        currentTrig.Enter();
+                        currObj = currentTrig.interactedObj;
+                        currObj.GetComponent<Movement>().StopTranslation = true;
+                        currObj.GetComponent<ObjectPusher>().ForceDropObject();
                         LevitatePos = new Vector3(temp.transform.position.x, temp.transform.position.y + 2, temp.transform.position.z);
 
-                        currentTrig.Enter();
-                        SetKinematic(true, player);
+                        SetKinematic(true, currObj);
                     }
                 }
             }
         }
     }
 
-    private void PlayerLevitates()
+    private void ObjectLevitates()
     {
-        player.transform.position = Vector3.Lerp(player.transform.position, LevitatePos, Time.deltaTime * 3);
-        if (Vector3.Distance(player.transform.position, LevitatePos) < 0.1)
-            playerInPosition = true;
+        currObj.transform.position = Vector3.Lerp(currObj.transform.position, LevitatePos, Time.deltaTime * 3);
+        if (Vector3.Distance(currObj.transform.position, LevitatePos) < 0.1)
+            objInPosition = true;
     }
 
     public void SetKinematic(bool on, GameObject obj)
