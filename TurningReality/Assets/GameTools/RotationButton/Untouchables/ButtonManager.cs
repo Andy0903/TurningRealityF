@@ -61,9 +61,12 @@ public class ButtonManager : MonoBehaviour
                         currentTrig = temp;
                         currentTrig.Enter();
                         currObj = currentTrig.interactedObj;
-                        currObj.GetComponent<Movement>().StopTranslation = true;
-                        currObj.GetComponent<ObjectPusher>().ForceDropObject();
                         LevitatePos = new Vector3(temp.transform.position.x, temp.transform.position.y + 2, temp.transform.position.z);
+
+                        if (currObj.GetComponent<Movement>() != null)
+                            currObj.GetComponent<Movement>().StopTranslation = true;
+                        if (currObj.GetComponent<ObjectPusher>() != null)
+                            currObj.GetComponent<ObjectPusher>().ForceDropObject();
 
                         SetKinematic(true, currObj);
                     }
