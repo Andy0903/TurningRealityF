@@ -8,8 +8,11 @@ public class FollowCamera : MonoBehaviour
     GameObject target;
     Vector3 offset;
 
-   // [SerializeField]
-   // float damping = 10f;
+    readonly Vector3 zeroPos;
+    Vector3 sineWavePos;
+
+    // [SerializeField]
+    // float damping = 10f;
     [SerializeField]
     float maxPitchAngle = 50;
     [SerializeField]
@@ -20,7 +23,7 @@ public class FollowCamera : MonoBehaviour
     float maxZoomOut = 15;
     [SerializeField]
     float minZoomOut = 3;
-    
+
 
     private void Start()
     {
@@ -75,13 +78,40 @@ public class FollowCamera : MonoBehaviour
         RotationInput();
         ZoomInput();
 
-      //  float currentY = transform.eulerAngles.y;
+        //  float currentY = transform.eulerAngles.y;
         float desiredY = target.transform.eulerAngles.y;
-       // float angleY = Mathf.LerpAngle(currentY, desiredY, Time.deltaTime * damping);
+        // float angleY = Mathf.LerpAngle(currentY, desiredY, Time.deltaTime * damping);
 
         Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, desiredY, 0);
 
         transform.position = target.transform.position - (rotation * offset);
         transform.LookAt(target.transform);
+    }
+
+    private Vector2 CalculateHoverPosition(Vector2 aAmplitude, Vector2 aFrequency)
+    {
+        float posX = sineWavePos.x;
+        float posY = sineWavePos.y;
+
+        posX += aFrequency.x * Time.deltaTime * 1000;
+        posY += aFrequency.y * Time.deltaTime * 1000;
+
+        // Subtracts all full cycles to avoid overflows.
+        posX -= (float)(Mathf.Floor(posX / (Mathf.PI * 2)) * Mathf.PI * 2);
+        posY -= (float)(Mathf.Floor(posY / (Mathf.PI * 2)) * Mathf.PI * 2);
+
+        sineWavePos = new Vector2(posX, posY);
+
+        return new Vector2(aAmplitude.x * (float)Mathf.Sin(posX), aAmplitude.y * (float)Mathf.Sin(posY));
+    }
+
+    public void HeadBobbing()
+    {
+        Vector2 amplitude = new Vector2(Screen.width * 0.0002f, Screen.height * 0.0005f);
+        Vector2 frequency = new Vector2(0.001f, 0.002f);
+
+        Vector2 newPosition = CalculateHoverPosition(amplitude, frequency);
+
+        transform.position += new Vector3(0, newPosition.y, 0);
     }
 }
