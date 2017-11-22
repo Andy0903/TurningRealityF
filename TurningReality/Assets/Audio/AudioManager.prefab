@@ -250,6 +250,14 @@ MonoBehaviour:
     pitch: 3
     pitchVariance: 0.1
     loop: 0
+  - name: PowerUp
+    clips:
+    - {fileID: 8300000, guid: a89596add19928d48bc0fb335c9feb33, type: 3}
+    volume: 0.246
+    volumeVariance: 0.1
+    pitch: 3
+    pitchVariance: 0.1
+    loop: 0
   backgroundMusic:
   - {fileID: 8300000, guid: d0166b36f2634b8488f7a7211aaf8f63, type: 3}
   - {fileID: 8300000, guid: 571ea66039e11cb4284670fb1016b47d, type: 3}

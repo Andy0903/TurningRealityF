@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUps : MonoBehaviour
 {
-    public AudioClip powerupSound;
+    //public AudioClip powerupSound;
     public bool highJump;
     public float powerupLength;
 
@@ -31,7 +31,8 @@ public class PowerUps : MonoBehaviour
         if(other.tag == "Player")
         {
             highJump = true;
-            GetComponent<AudioSource>().PlayOneShot(powerupSound);
+            //GetComponent<AudioSource>().PlayOneShot(powerupSound);
+            AudioManager.Instance.Play("PowerUp", true);
             powerUpManager.ActivatePowerup(highJump, powerupLength);
             //FlipStates();
         }
