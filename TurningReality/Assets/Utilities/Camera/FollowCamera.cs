@@ -8,7 +8,7 @@ public class FollowCamera : MonoBehaviour
     GameObject target;
     Vector3 offset;
 
-    readonly Vector3 zeroPos;
+   // readonly Vector3 zeroPos;
     Vector3 sineWavePos;
 
     //[SerializeField]
