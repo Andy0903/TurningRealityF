@@ -8,11 +8,11 @@ public class FollowCamera : MonoBehaviour
     GameObject target;
     Vector3 offset;
 
-    readonly Vector3 zeroPos;
+   // readonly Vector3 zeroPos;
     Vector3 sineWavePos;
 
-    // [SerializeField]
-    // float damping = 10f;
+    //[SerializeField]
+    float damping = 4f;
     [SerializeField]
     float maxPitchAngle = 50;
     [SerializeField]
@@ -24,11 +24,15 @@ public class FollowCamera : MonoBehaviour
     [SerializeField]
     float minZoomOut = 3;
 
+   // public bool IsWalking { get; set; }
+
 
     private void Start()
     {
-        transform.position = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
+        const int zoffset = 7;
+        transform.position = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z - zoffset);
         offset = target.transform.position - transform.position;
+        // IsWalking = false;
     }
 
     private void ZoomInput()
@@ -78,23 +82,33 @@ public class FollowCamera : MonoBehaviour
         RotationInput();
         ZoomInput();
 
-        //  float currentY = transform.eulerAngles.y;
+        float currentY = transform.eulerAngles.y;
         float desiredY = target.transform.eulerAngles.y;
-        // float angleY = Mathf.LerpAngle(currentY, desiredY, Time.deltaTime * damping);
+        float angleY = Mathf.LerpAngle(currentY, desiredY, Time.deltaTime * damping);
 
-        Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, desiredY, 0);
+        float currentX = transform.eulerAngles.x;
+        float desiredX = target.transform.parent.eulerAngles.x;
+        float angleX = Mathf.LerpAngle(currentX, desiredX, Time.deltaTime * damping / (damping-1));
+
+        Debug.Log("1: " + angleX);
+        Debug.Log("2: " + transform.eulerAngles.x);
+
+        Quaternion rotation = Quaternion.Euler(angleX, angleY, 0);  //transform.eulerAngles.x
 
         transform.position = target.transform.position - (rotation * offset);
         transform.LookAt(target.transform);
+
+
+        SineBobbing();
     }
 
-    private Vector2 CalculateHoverPosition(Vector2 aAmplitude, Vector2 aFrequency)
+    private Vector2 CalculateHoverPosition(Vector2 amplitude, Vector2 frequency)
     {
         float posX = sineWavePos.x;
         float posY = sineWavePos.y;
 
-        posX += aFrequency.x * Time.deltaTime * 1000;
-        posY += aFrequency.y * Time.deltaTime * 1000;
+        posX += frequency.x * Time.deltaTime * 1000;
+        posY += frequency.y * Time.deltaTime * 1000;
 
         // Subtracts all full cycles to avoid overflows.
         posX -= (float)(Mathf.Floor(posX / (Mathf.PI * 2)) * Mathf.PI * 2);
@@ -102,16 +116,16 @@ public class FollowCamera : MonoBehaviour
 
         sineWavePos = new Vector2(posX, posY);
 
-        return new Vector2(aAmplitude.x * (float)Mathf.Sin(posX), aAmplitude.y * (float)Mathf.Sin(posY));
+        return new Vector2(amplitude.x * (float)Mathf.Sin(posX), amplitude.y * (float)Mathf.Sin(posY));
     }
 
-    public void HeadBobbing()
+    public void SineBobbing()
     {
-        Vector2 amplitude = new Vector2(Screen.width * 0.0002f, Screen.height * 0.0005f);
-        Vector2 frequency = new Vector2(0.001f, 0.002f);
+        Vector2 amplitude = new Vector2(Screen.width * 0.0002f, Screen.height * 0.0002f);
+        Vector2 frequency = new Vector2(0.0005f, 0.001f);
 
         Vector2 newPosition = CalculateHoverPosition(amplitude, frequency);
-
+        
         transform.position += new Vector3(0, newPosition.y, 0);
     }
 }
