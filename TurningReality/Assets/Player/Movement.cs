@@ -82,6 +82,7 @@ public class Movement : MonoBehaviour
         Vector3 movement = new Vector3(horizontal, 0, vertical).normalized;
         if (movement != Vector3.zero && isGrounded)
         {
+           // Camera.main.GetComponent<FollowCamera>().IsWalking = true;
             animator.SetFloat("Forward", 0.5f);
             AudioManager.Instance.Play("Footstep");
             if (HoldsObject)
@@ -96,6 +97,7 @@ public class Movement : MonoBehaviour
             AudioManager.Instance.Stop("DragOnFloor2");
 
             animator.SetFloat("Forward", 0);
+         //   Camera.main.GetComponent<FollowCamera>().IsWalking = false;
         }
 
         transform.Translate(movement * speed * Time.deltaTime);
