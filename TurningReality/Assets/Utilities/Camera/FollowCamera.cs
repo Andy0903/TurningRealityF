@@ -29,7 +29,7 @@ public class FollowCamera : MonoBehaviour
 
     private void Start()
     {
-        const int zoffset = 5;
+        const int zoffset = 7;
         transform.position = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z - zoffset);
         offset = target.transform.position - transform.position;
         // IsWalking = false;
@@ -88,7 +88,7 @@ public class FollowCamera : MonoBehaviour
 
         float currentX = transform.eulerAngles.x;
         float desiredX = target.transform.parent.eulerAngles.x;
-        float angleX = Mathf.LerpAngle(currentX, desiredX, Time.deltaTime * damping);
+        float angleX = Mathf.LerpAngle(currentX, desiredX, Time.deltaTime * damping / (damping-1));
 
         Debug.Log("1: " + angleX);
         Debug.Log("2: " + transform.eulerAngles.x);
