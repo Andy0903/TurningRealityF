@@ -90,8 +90,8 @@ public class FollowCamera : MonoBehaviour
         float desiredX = target.transform.parent.eulerAngles.x;
         float angleX = Mathf.LerpAngle(currentX, desiredX, Time.deltaTime * damping / (damping-1));
 
-        Debug.Log("1: " + angleX);
-        Debug.Log("2: " + transform.eulerAngles.x);
+        //Debug.Log("1: " + angleX);
+        //Debug.Log("2: " + transform.eulerAngles.x);
 
         Quaternion rotation = Quaternion.Euler(angleX, angleY, 0);  //transform.eulerAngles.x
 

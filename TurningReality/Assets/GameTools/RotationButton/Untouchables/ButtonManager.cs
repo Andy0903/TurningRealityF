@@ -8,7 +8,7 @@ public class ButtonManager : MonoBehaviour
     ButtonRotation currentTrig;
     Transform worldTrans;
     GameObject[] buttons;
-    GameObject currObj;
+    GameObject currObj, player;
     Vector3 LevitatePos;
 
     bool objInPosition = false;
@@ -18,6 +18,7 @@ public class ButtonManager : MonoBehaviour
     {
         worldTrans = GameObject.FindGameObjectWithTag("WorldOrigin").transform;
         buttons = GameObject.FindGameObjectsWithTag("Button");
+        player = GameObject.FindGameObjectWithTag("Player");
 
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -40,8 +41,9 @@ public class ButtonManager : MonoBehaviour
                 if (currentTrig.Exit())
                 {
                     SetKinematic(false, currObj);
-                    currObj.transform.eulerAngles = new Vector3(0, currObj.transform.eulerAngles.y, 0);
-                    currObj.GetComponent<Movement>().StopTranslation = false;
+                    SetKinematic(false, player);
+                    player.transform.eulerAngles = new Vector3(0, currObj.transform.eulerAngles.y, 0);
+                    player.GetComponent<Movement>().StopTranslation = false;
                     currentTrig = null;
                     objInPosition = false;
                 }
@@ -61,14 +63,12 @@ public class ButtonManager : MonoBehaviour
                         currentTrig = temp;
                         currentTrig.Enter();
                         currObj = currentTrig.interactedObj;
+                        SetKinematic(true, currObj);
                         LevitatePos = new Vector3(temp.transform.position.x, temp.transform.position.y + 2, temp.transform.position.z);
 
-                        if (currObj.GetComponent<Movement>() != null)
-                            currObj.GetComponent<Movement>().StopTranslation = true;
-                        if (currObj.GetComponent<ObjectPusher>() != null)
-                            currObj.GetComponent<ObjectPusher>().ForceDropObject();
-
-                        SetKinematic(true, currObj);
+                        player.GetComponent<Movement>().StopTranslation = true;
+                        player.GetComponent<ObjectPusher>().ForceDropObject();
+                        SetKinematic(true, player);
                     }
                 }
             }
