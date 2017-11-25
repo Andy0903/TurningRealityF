@@ -34,7 +34,7 @@ public class PowerUpManager : MonoBehaviour
             {
                 movement.jumpForce = normalJump * jumpMultiplier;
                 //FlipStates();
-                Debug.Log(movement.jumpForce);
+                //Debug.Log(movement.jumpForce);
                 
             }
             

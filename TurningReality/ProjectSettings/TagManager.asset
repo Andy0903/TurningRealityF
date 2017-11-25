@@ -10,6 +10,7 @@ TagManager:
   - GlowObject
   - PuzzlePiece
   - PuzzlePieceHolder
+  - PickUp
   layers:
   - Default
   - TransparentFX
