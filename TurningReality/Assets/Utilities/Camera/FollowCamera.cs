@@ -88,7 +88,7 @@ public class FollowCamera : MonoBehaviour
 
         float currentX = transform.eulerAngles.x;
         float desiredX = target.transform.parent.eulerAngles.x;
-        float angleX = Mathf.LerpAngle(currentX, desiredX, Time.deltaTime * damping / (damping-1));
+        float angleX = Mathf.LerpAngle(currentX, desiredX, Time.deltaTime * damping / (damping - 1));
 
         //Debug.Log("1: " + angleX);
         //Debug.Log("2: " + transform.eulerAngles.x);
