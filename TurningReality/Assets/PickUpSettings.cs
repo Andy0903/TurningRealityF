@@ -16,7 +16,7 @@ public class PickUpSettings : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             gameObject.SetActive(false);
-            GameObject.Find("ScoreManager").GetComponent<StatsTracker>().SetScoreText(ScoreAmount);
+            GameObject.Find("LevelManager").GetComponent<StatsTracker>().SetScoreText(ScoreAmount);
         }
     }
 
