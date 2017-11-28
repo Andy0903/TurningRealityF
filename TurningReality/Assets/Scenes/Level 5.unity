@@ -393,7 +393,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4761888652299034, guid: 697f4f81508c4094daa0e92dc70766e9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.067482
+      value: -6.16
       objectReference: {fileID: 0}
     - target: {fileID: 4761888652299034, guid: 697f4f81508c4094daa0e92dc70766e9, type: 2}
       propertyPath: m_LocalPosition.y
@@ -401,7 +401,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4761888652299034, guid: 697f4f81508c4094daa0e92dc70766e9, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 2.4991493
+      value: 15.15
       objectReference: {fileID: 0}
     - target: {fileID: 4761888652299034, guid: 697f4f81508c4094daa0e92dc70766e9, type: 2}
       propertyPath: m_LocalRotation.x
@@ -649,7 +649,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 735055388}
+  m_TargetTexture: {fileID: 1202295821}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -890,8 +890,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 468587902}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.863968, y: 34.688663, z: 32.977253}
-  m_LocalScale: {x: 30, y: 5, z: 40}
+  m_LocalPosition: {x: 10.863968, y: 34.688663, z: 49.1}
+  m_LocalScale: {x: 30, y: 5, z: 8.595119}
   m_Children: []
   m_Father: {fileID: 1855681590}
   m_RootOrder: 0
@@ -1454,6 +1454,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -1503,33 +1517,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.211536, y: 2.2115364, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0.041726474}
---- !u!84 &735055388
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 460
-  m_Height: 303
-  m_AntiAliasing: 2
-  m_DepthFormat: 2
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &757264889
 Prefab:
   m_ObjectHideFlags: 0
@@ -2049,6 +2036,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -2147,6 +2148,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -2210,6 +2225,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 697f4f81508c4094daa0e92dc70766e9, type: 2}
   m_IsPrefabParent: 0
+--- !u!84 &1202295821
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 1536
+  m_Height: 693
+  m_AntiAliasing: 2
+  m_DepthFormat: 2
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &1224563644 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4857039572189798, guid: 40eae3198bd33cf4992fb5f4f7fb153d,
@@ -2264,7 +2306,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 563890fee92d1a641bf96618f83658a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.42826
+      value: -34.62
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 563890fee92d1a641bf96618f83658a6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2272,7 +2314,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 563890fee92d1a641bf96618f83658a6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.348625
+      value: 23.01
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 563890fee92d1a641bf96618f83658a6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2386,6 +2428,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -2566,6 +2622,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -2836,6 +2906,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -3548,8 +3632,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2017713872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.73603, y: 34.688663, z: 26.177254}
-  m_LocalScale: {x: 10, y: 5, z: 52.80819}
+  m_LocalPosition: {x: -17.73603, y: 34.688663, z: 21.98}
+  m_LocalScale: {x: 10, y: 5, z: 39.0189}
   m_Children: []
   m_Father: {fileID: 1855681590}
   m_RootOrder: 1

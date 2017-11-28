@@ -39,7 +39,7 @@ public class LevelManage : MonoBehaviour
                 times.TimeLimit = 80;
                 break;
             case 3:
-                times.TimeLimit = 10;
+                times.TimeLimit = 80;
                 break;
             case 4:
                 times.TimeLimit = 10;

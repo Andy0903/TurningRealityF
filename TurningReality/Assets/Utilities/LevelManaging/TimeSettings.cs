@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TimeSettings : MonoBehaviour
 {
+    [SerializeField]
     public double TimeLimit { get; set; }
     public Text txtTime;
 
