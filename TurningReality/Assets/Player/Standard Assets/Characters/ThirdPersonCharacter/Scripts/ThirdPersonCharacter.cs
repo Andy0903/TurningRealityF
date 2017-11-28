@@ -39,6 +39,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         bool m_Crouching;
 
 
+        private void Awake()
+        {
+            if (PathManager.Instance != null)
+            {
+                const int savePositionTime = 1;
+                InvokeRepeating("UpdatePathManagerData", savePositionTime, savePositionTime);
+            }
+        }
+
+        void UpdatePathManagerData()
+        {
+            PathManager.Instance.UpdateData(transform.localPosition);
+        }
+
         void Start()
         {
             m_Animator = GetComponent<Animator>();
