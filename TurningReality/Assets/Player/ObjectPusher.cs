@@ -18,6 +18,8 @@ public class ObjectPusher : MonoBehaviour
 
     bool oldKinimaticState;
 
+    public bool IsHolding { get; private set; }
+
     public void ForceDropObject()
     {
         if (target != null)
@@ -40,7 +42,8 @@ public class ObjectPusher : MonoBehaviour
             oldKinimaticState = target.gameObject.GetComponent<Rigidbody>().isKinematic;
             target.gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
-            GetComponent<Movement>().HoldsObject = true;
+            //GetComponent<Movement>().HoldsObject = true;
+            IsHolding = true;
             target.SetParent(transform);
             FixedJoint joint = target.gameObject.AddComponent<FixedJoint>();
             joint.connectedBody = gameObject.GetComponent<Rigidbody>();
@@ -59,7 +62,8 @@ public class ObjectPusher : MonoBehaviour
         target.gameObject.GetComponent<Rigidbody>().isKinematic = oldKinimaticState;
         Destroy(target.gameObject.GetComponent<FixedJoint>());
         target = null;
-        GetComponent<Movement>().HoldsObject = false;
+        //GetComponent<Movement>().HoldsObject = false;
+        IsHolding = false;
     }
 
     private void Update()

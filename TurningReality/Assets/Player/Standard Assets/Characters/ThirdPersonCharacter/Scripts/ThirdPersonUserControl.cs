@@ -12,6 +12,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
+        ObjectPusher objectPusher;
+
         
         private void Start()
         {
@@ -29,12 +31,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             // get the third person character ( this should never be null due to require component )
             m_Character = GetComponent<ThirdPersonCharacter>();
+            objectPusher = GetComponent<ObjectPusher>();
         }
 
 
         private void Update()
         {
-            if (!m_Jump)
+            if (!m_Jump && !objectPusher.IsHolding)
             {
                 m_Jump = Input.GetButtonDown("Jump");
             }
@@ -47,7 +50,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // read inputs
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
-            bool crouch = Input.GetKey(KeyCode.C);
+            bool crouch = false; // Input.GetKey(KeyCode.C);
 
             // calculate move direction to pass to character
             if (m_Cam != null)
@@ -63,11 +66,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
 #if !MOBILE_INPUT
 			// walk speed multiplier
-	        if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
+	        //if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
 #endif
 
             // pass all parameters to the character control script
-            m_Character.Move(m_Move, crouch, m_Jump);
+            m_Character.Move(m_Move, crouch, m_Jump, objectPusher.IsHolding);
             m_Jump = false;
         }
     }
