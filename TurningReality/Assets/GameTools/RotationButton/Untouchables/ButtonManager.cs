@@ -43,7 +43,7 @@ public class ButtonManager : MonoBehaviour
                     SetKinematic(false, currObj);
                     SetKinematic(false, player);
                     player.transform.eulerAngles = new Vector3(0, currObj.transform.eulerAngles.y, 0);
-                    player.GetComponent<Movement>().StopTranslation = false;
+                    player.GetComponent<ThirdPersonUserControl>().StopTranslation = false;
                     currentTrig = null;
                     objInPosition = false;
                 }
@@ -66,7 +66,7 @@ public class ButtonManager : MonoBehaviour
                         SetKinematic(true, currObj);
                         LevitatePos = new Vector3(temp.transform.position.x, temp.transform.position.y + 2, temp.transform.position.z);
 
-                        player.GetComponent<Movement>().StopTranslation = true;
+                        player.GetComponent<ThirdPersonUserControl>().StopTranslation = true;
                         player.GetComponent<ObjectPusher>().ForceDropObject();
                         SetKinematic(true, player);
                     }

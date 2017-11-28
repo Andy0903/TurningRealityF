@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class PuzzlePieceHolder : MonoBehaviour
 {
@@ -64,7 +65,7 @@ public class PuzzlePieceHolder : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<ObjectPusher>().ForceDropObject();
-        player.GetComponent<Movement>().StopTranslation = true;
+        player.GetComponent<ThirdPersonUserControl>().StopTranslation = true;
         targetPos = new Vector3(transform.position.x - (GetComponent<BoxCollider>().size.x / 2), myTarget.transform.position.y, transform.position.z - (GetComponent<BoxCollider>().size.z / 2));
         lockedOn = true;
     }
@@ -86,7 +87,7 @@ public class PuzzlePieceHolder : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         myTarget.layer = 0;
         done = true;
-        player.GetComponent<Movement>().StopTranslation = false;
+        player.GetComponent<ThirdPersonUserControl>().StopTranslation = false;
         myTarget.transform.position = targetPos;
         myTarget.GetComponent<Rigidbody>().isKinematic = true;
         GameObject.Find("PuzzleManager").GetComponent<PuzzleManager>().CheckActivateGoal();
