@@ -35,8 +35,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
+        void RotationInput()
+        {
+            float yaw = Input.GetAxis("Yaw");
+            yaw = Mathf.Clamp(yaw, -1, 1);
+
+            transform.Rotate(0, yaw * 2, 0); //magic number for speed
+        }
+
         private void Update()
         {
+            RotationInput();
             if (!m_Jump && !objectPusher.IsHolding)
             {
                 m_Jump = Input.GetButtonDown("Jump");
