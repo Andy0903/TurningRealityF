@@ -68,6 +68,7 @@ public class ButtonManager : MonoBehaviour
                         LevitatePos = new Vector3(temp.transform.position.x, temp.transform.position.y + 2, temp.transform.position.z);
 
                         player.GetComponent<ThirdPersonUserControl>().StopTranslation = true;
+                        player.GetComponent<ThirdPersonCharacter>().HaltMovement();
                         player.GetComponent<ObjectPusher>().ForceDropObject();
                         SetKinematic(true, player);
                     }

@@ -189,6 +189,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
         }
 
+        public void HaltMovement()
+        {
+            m_Animator.SetFloat("Forward", 0);
+            m_Animator.speed = 0;
+        }
+
         void ForceMovementInAir()
         {
             float v = Input.GetAxis("Vertical");
