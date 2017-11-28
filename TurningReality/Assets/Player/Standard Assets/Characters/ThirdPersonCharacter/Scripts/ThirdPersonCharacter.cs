@@ -11,8 +11,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         float m_MovingTurnSpeed = 360;
         [SerializeField]
         float m_StationaryTurnSpeed = 180;
-        [SerializeField]
-        float m_JumpPower = 12f;
+        
+        public float m_JumpPower = 12f;
         [Range(1f, 4f)]
         [SerializeField]
         float m_GravityMultiplier = 2f;

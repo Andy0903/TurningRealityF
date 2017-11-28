@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class PowerUpManager : MonoBehaviour
 {
@@ -11,15 +12,17 @@ public class PowerUpManager : MonoBehaviour
     private float normalJump;
     private float jumpMultiplier = 2.5f;
 
-    private Movement movement;
+    private ThirdPersonCharacter movement;
     PowerUps powerUps;
 
     
 	// Use this for initialization
 	void Start ()
     {
-        movement = FindObjectOfType<Movement>();
+        movement = FindObjectOfType<ThirdPersonCharacter>();
         powerUps = FindObjectOfType<PowerUps>();
+
+        normalJump = movement.m_JumpPower;
         
     }
 	
@@ -32,7 +35,7 @@ public class PowerUpManager : MonoBehaviour
 
             if(highJump)
             {
-                movement.jumpForce = normalJump * jumpMultiplier;
+                movement.m_JumpPower = normalJump * jumpMultiplier;
                 //FlipStates();
                 //Debug.Log(movement.jumpForce);
                 
@@ -40,7 +43,7 @@ public class PowerUpManager : MonoBehaviour
             
             if(powerupLengthCounter <= 0)
             {
-                movement.jumpForce = normalJump;
+                movement.m_JumpPower = normalJump;
                 powerupActive = false;
             }
         }
@@ -51,7 +54,7 @@ public class PowerUpManager : MonoBehaviour
     {
         highJump = jump;
         powerupLengthCounter = time;
-        normalJump = movement.jumpForce;
+        normalJump = movement.m_JumpPower;
         powerupActive = true;
     }
 }
