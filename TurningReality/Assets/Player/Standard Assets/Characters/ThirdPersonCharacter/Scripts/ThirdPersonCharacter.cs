@@ -202,6 +202,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         void ForceMovementDrag()
         {
             float v = Input.GetAxis("Vertical");
+            float h = Input.GetAxis("Horizontal");
 
             if (0 > v)
             {
@@ -212,7 +213,16 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 transform.Translate(Vector3.forward * 5f * Time.deltaTime); //Magic number for speed
             }
 
-            if (v != 0)
+            if (0 > h)
+            {
+                transform.Translate(-Vector3.right * 5f * Time.deltaTime);
+            }
+            else if (0 < h)
+            {
+                transform.Translate(Vector3.right * 5f * Time.deltaTime);
+            }
+
+            if (v != 0 || h != 0)
             {
                 AudioManager.Instance.Play("DragOnFloor");
                 AudioManager.Instance.Play("DragOnFloor2");

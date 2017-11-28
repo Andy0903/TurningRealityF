@@ -1489,7 +1489,7 @@ Transform:
   m_GameObject: {fileID: 522909457}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.4229126, y: 9.019522, z: -69.07938}
-  m_LocalScale: {x: 23.914452, y: 5.6830525, z: 10.946149}
+  m_LocalScale: {x: 5.859151, y: 3.877473, z: 7.4684153}
   m_Children: []
   m_Father: {fileID: 1692597451}
   m_RootOrder: 4
@@ -2852,6 +2852,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8519151, y: 0.85191506, z: 0.7456749}
   m_Center: {x: -0.000013858076, y: -0.000018253913, z: -0.006044596}
+--- !u!84 &989618255
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 1148
+  m_Height: 673
+  m_AntiAliasing: 2
+  m_DepthFormat: 2
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1009243878
 Prefab:
   m_ObjectHideFlags: 0
@@ -3350,33 +3377,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0118258, y: 1.011826, z: 0.6152702}
   m_Center: {x: 0.0011328758, y: -0.0016957232, z: -0.0011108954}
---- !u!84 &1331698702
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 1148
-  m_Height: 673
-  m_AntiAliasing: 2
-  m_DepthFormat: 2
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1347278704
 GameObject:
   m_ObjectHideFlags: 0
