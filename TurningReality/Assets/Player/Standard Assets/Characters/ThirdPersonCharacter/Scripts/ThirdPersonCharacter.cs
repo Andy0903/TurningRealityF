@@ -77,10 +77,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             move = Vector3.ProjectOnPlane(move, m_GroundNormal);
             m_TurnAmount = Mathf.Atan2(move.x, move.z);
             m_ForwardAmount = move.z;
+            
 
             if (!isHolding)
             {
                 ApplyExtraTurnRotation();
+
+                AudioManager.Instance.Stop("DragOnFloor");
+                AudioManager.Instance.Stop("DragOnFloor2");
             }
             else
             {
@@ -90,6 +94,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // control and velocity handling is different when grounded and airborne:
             if (m_IsGrounded)
             {
+                if (m_ForwardAmount != 0 || m_TurnAmount != 0)
+                {
+                    AudioManager.Instance.Play("Footstep");
+                }
                 HandleGroundedMovement(crouch, jump);
             }
             else
@@ -203,6 +211,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 transform.Translate(Vector3.forward * 5f * Time.deltaTime); //Magic number for speed
             }
+
+            if (v != 0)
+            {
+                AudioManager.Instance.Play("DragOnFloor");
+                AudioManager.Instance.Play("DragOnFloor2");
+            }
+            else
+            {
+                AudioManager.Instance.Stop("DragOnFloor");
+                AudioManager.Instance.Stop("DragOnFloor2");
+            }
         }
 
 
@@ -228,6 +247,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_IsGrounded = false;
                 m_Animator.applyRootMotion = false;
                 m_GroundCheckDistance = 0.1f;
+                AudioManager.Instance.Play("Jump");
             }
         }
 
@@ -265,6 +285,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // it is also good to note that the transform position in the sample assets is at the base of the character
             if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
             {
+                if (m_IsGrounded == false)
+                {
+                    AudioManager.Instance.Play("Land");
+                }
+
                 m_GroundNormal = hitInfo.normal;
                 m_IsGrounded = true;
                 m_Animator.applyRootMotion = true;
