@@ -1068,20 +1068,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -1147,20 +1133,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -2827,20 +2799,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -2944,7 +2902,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4594732285173360, guid: cfb05ae23a9bab143b6456daaff4c123, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.10000006
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4594732285173360, guid: cfb05ae23a9bab143b6456daaff4c123, type: 2}
       propertyPath: m_LocalScale.z
@@ -3337,6 +3295,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 732b04a9748a30d498a888bf1e8f9cef, type: 2}
   m_IsPrefabParent: 0
+--- !u!84 &1499110774
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 1520
+  m_Height: 276
+  m_AntiAliasing: 2
+  m_DepthFormat: 2
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &1511323389 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b1949670fd269c54f8fb17f8889ef619, type: 3}
@@ -3490,7 +3475,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4594732285173360, guid: cfb05ae23a9bab143b6456daaff4c123, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.10000006
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4594732285173360, guid: cfb05ae23a9bab143b6456daaff4c123, type: 2}
       propertyPath: m_LocalScale.z
@@ -3929,7 +3914,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4594732285173360, guid: cfb05ae23a9bab143b6456daaff4c123, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.10000012
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4594732285173360, guid: cfb05ae23a9bab143b6456daaff4c123, type: 2}
       propertyPath: m_LocalScale.z
@@ -5051,33 +5036,6 @@ Prefab:
     - {fileID: 9500000, guid: 4aa79c11aa15e74429558a529a9d6a98, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4aa79c11aa15e74429558a529a9d6a98, type: 3}
   m_IsPrefabParent: 0
---- !u!84 &1963254185
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 1330
-  m_Height: 277
-  m_AntiAliasing: 2
-  m_DepthFormat: 2
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1971019168 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100010, guid: 10bb30e4f7c0ad8499723928e7645407, type: 3}
@@ -5374,20 +5332,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
