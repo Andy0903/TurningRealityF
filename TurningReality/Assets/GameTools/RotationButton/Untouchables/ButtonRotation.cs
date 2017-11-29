@@ -124,6 +124,6 @@ public class ButtonRotation : MonoBehaviour
 
     private void ChangeColor(Color color)
     {
-        GetComponent<Renderer>().material.color = color;
+        GetComponentInChildren<Renderer>().material.color = color;
     }
 }
