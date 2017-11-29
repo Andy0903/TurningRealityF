@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highJump: 1
-  powerupLength: 10
+  powerupLength: 40
 --- !u!135 &135216785693919038
 SphereCollider:
   m_ObjectHideFlags: 1
