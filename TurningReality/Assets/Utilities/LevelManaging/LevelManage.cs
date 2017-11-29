@@ -30,22 +30,22 @@ public class LevelManage : MonoBehaviour
         switch (level)
         {
             case 0:
-                times.TimeLimit = 10;
+                times.TimeLimit = 10 * 10;
                 break;
             case 1:
-                times.TimeLimit = 60;
+                times.TimeLimit = 60 * 10;
                 break;
             case 2:
-                times.TimeLimit = 80;
+                times.TimeLimit = 80 * 10;
                 break;
             case 3:
-                times.TimeLimit = 80;
+                times.TimeLimit = 80 * 10;
                 break;
             case 4:
-                times.TimeLimit = 10;
+                times.TimeLimit = 80 * 10;
                 break;
             case 5:
-                times.TimeLimit = 10;
+                times.TimeLimit = 80 * 10;
                 break;
         }
     }
