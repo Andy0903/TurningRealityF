@@ -55,7 +55,8 @@ public class LevelManage : MonoBehaviour
     {
         if(times.TimeOver())
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            stats.Punish();
         }
     }
 }
