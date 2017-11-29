@@ -407,33 +407,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7835b1ab6b5e0ae4e9a8668ffb120145, type: 2}
   m_IsPrefabParent: 0
---- !u!84 &219413185
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 1521
-  m_Height: 276
-  m_AntiAliasing: 2
-  m_DepthFormat: 2
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &311956483
 Prefab:
   m_ObjectHideFlags: 0
@@ -699,7 +672,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 219413185}
+  m_TargetTexture: {fileID: 517211716}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -1149,6 +1122,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40eae3198bd33cf4992fb5f4f7fb153d, type: 2}
   m_IsPrefabParent: 0
+--- !u!84 &517211716
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 1521
+  m_Height: 276
+  m_AntiAliasing: 2
+  m_DepthFormat: 2
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &519250412 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4761888652299034, guid: 697f4f81508c4094daa0e92dc70766e9,
@@ -2627,7 +2627,7 @@ Transform:
   - {fileID: 818688872}
   - {fileID: 840835112}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1414595620 stripped
 Transform:
@@ -3552,6 +3552,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1888205264
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4985822812400600, guid: 3b60b602e5dafe04da1203e8c8fb6f96, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 108.50041
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985822812400600, guid: 3b60b602e5dafe04da1203e8c8fb6f96, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985822812400600, guid: 3b60b602e5dafe04da1203e8c8fb6f96, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -51.757156
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985822812400600, guid: 3b60b602e5dafe04da1203e8c8fb6f96, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985822812400600, guid: 3b60b602e5dafe04da1203e8c8fb6f96, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985822812400600, guid: 3b60b602e5dafe04da1203e8c8fb6f96, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985822812400600, guid: 3b60b602e5dafe04da1203e8c8fb6f96, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985822812400600, guid: 3b60b602e5dafe04da1203e8c8fb6f96, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3b60b602e5dafe04da1203e8c8fb6f96, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1926595677 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4761888652299034, guid: 697f4f81508c4094daa0e92dc70766e9,
