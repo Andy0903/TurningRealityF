@@ -80,7 +80,7 @@ public class ButtonManager : MonoBehaviour
     private void ObjectLevitates()
     {
         currObj.transform.position = Vector3.Lerp(currObj.transform.position, LevitatePos, Time.deltaTime * 3);
-        if (Vector3.Distance(currObj.transform.position, LevitatePos) < 0.1)
+        if (Vector3.Distance(currObj.transform.position, LevitatePos) <= Time.deltaTime * 3)
             objInPosition = true;
     }
 

@@ -9,6 +9,7 @@ public class LevelManage : MonoBehaviour
     public int[] levelTimes;
     TimeSettings times;
     StatsTracker stats;
+    TextManager texts;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class LevelManage : MonoBehaviour
         }
         times = GetComponent<TimeSettings>();
         stats = GetComponent<StatsTracker>();
+        texts = GetComponent<TextManager>();
     }
 
     private void OnLevelWasLoaded(int level)
@@ -48,12 +50,21 @@ public class LevelManage : MonoBehaviour
                 times.TimeLimit = 80 * 10;
                 break;
         }
+        if (level > levelTimes.Length)
+            times.TimeLimit = 900;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(times.TimeOver())
+        if (texts.isActive)
+        {
+            times.isCounting = false;
+        }
+        else
+            times.isCounting = true;
+
+        if (times.TimeOver())
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             stats.Punish();
