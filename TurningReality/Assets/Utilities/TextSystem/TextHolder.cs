@@ -17,12 +17,16 @@ public class TextHolder : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other == trigger.GetComponent<Collider>())
+        {
             parent.StartNewDialogue(textFile);
+            Destroy(gameObject);
+        }
     }
 
     public void ForceEnter()
     {
         parent.StartNewDialogue(textFile);
+        Destroy(gameObject);
     }
 
 }
