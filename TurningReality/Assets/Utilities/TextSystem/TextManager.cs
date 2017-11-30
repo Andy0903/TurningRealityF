@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class TextManager : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class TextManager : MonoBehaviour
         if (isActive)
         {
             displayText.text = textLines[currentIndex];
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Interact"))
                 currentIndex++;
             OnTextExit();
         }
@@ -44,6 +45,9 @@ public class TextManager : MonoBehaviour
             isActive = false;
             EnableBox(false);
             currentIndex = 0;
+            //GameObject player = GameObject.FindGameObjectWithTag("Player");
+            //ThirdPersonUserControl control = player.GetComponent<ThirdPersonUserControl>();
+            //control.StopTranslation = false;
         }
     }
 
@@ -67,6 +71,9 @@ public class TextManager : MonoBehaviour
     {
         if (file != null)
         {
+            //GameObject player = GameObject.FindGameObjectWithTag("Player");
+            //ThirdPersonUserControl control = player.GetComponent<ThirdPersonUserControl>();
+            //control.StopTranslation = true;
             textFile = file;
             isActive = true;
             EnableBox(true);

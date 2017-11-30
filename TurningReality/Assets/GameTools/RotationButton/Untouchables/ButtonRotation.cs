@@ -41,7 +41,6 @@ public class ButtonRotation : MonoBehaviour
                 {
                     AudioManager.Instance.Play("ButtonPress");
                     interactedObj = InteractiveObjects[i];
-                    Debug.Log(interactedObj.tag);
                     Triggered = true;
                     return;
                 }
@@ -71,8 +70,6 @@ public class ButtonRotation : MonoBehaviour
 
     public void Running(Transform worldTrans)
     {
-        Debug.Log(accumulateAngle);
-
         if (!MustCoolDown())
         {
             accumulateAngle += -transform.right * 0.5f;
