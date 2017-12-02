@@ -32,7 +32,7 @@ public class TextManager : MonoBehaviour
         if (isActive)
         {
             displayText.text = textLines[currentIndex];
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Interact"))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Interact"))
                 currentIndex++;
             OnTextExit();
         }

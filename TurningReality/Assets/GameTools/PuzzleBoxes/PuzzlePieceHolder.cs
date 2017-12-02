@@ -10,10 +10,17 @@ public class PuzzlePieceHolder : MonoBehaviour
     GameObject[] InteractiveObjects;
     GameObject myTarget;
     Vector3 targetPos;
+    
+    bool isActive()
+    {
+        if (Vector3.Dot(transform.up, Vector3.up) >= 0.9)
+            return true;
+        return false;
+    }
 
     private void OnTriggerEnter(Collider p)
     {
-        if (!inRange && !lockedOn)
+        if (!inRange && !lockedOn && isActive())
         {
             for (int i = 0; i < InteractiveObjects.Length; i++)
             {

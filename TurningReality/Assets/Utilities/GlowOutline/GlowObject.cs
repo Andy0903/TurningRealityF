@@ -73,7 +73,6 @@ public class GlowObject : MonoBehaviour
         }
         else
         {
-            Debug.Log(Vector3.Distance(transform.position, player.position));
             if (Vector3.Distance(transform.position, player.position) <= distanceToStartGlow)
             {
                 targetColor = glowColor;

@@ -10,6 +10,7 @@ public class LevelManage : MonoBehaviour
     TimeSettings times;
     StatsTracker stats;
     TextManager texts;
+    public bool ForceLoad { get; set; }
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class LevelManage : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        ForceLoad = false;
         times = GetComponent<TimeSettings>();
         stats = GetComponent<StatsTracker>();
         texts = GetComponent<TextManager>();
@@ -64,10 +66,11 @@ public class LevelManage : MonoBehaviour
         else
             times.isCounting = true;
 
-        if (times.TimeOver())
+        if (times.TimeOver() || ForceLoad)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             stats.Punish();
+            ForceLoad = false;
         }
     }
 }
