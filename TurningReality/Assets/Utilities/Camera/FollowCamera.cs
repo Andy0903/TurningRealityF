@@ -8,7 +8,7 @@ public class FollowCamera : MonoBehaviour
     GameObject target;
     Vector3 offset;
 
-   // readonly Vector3 zeroPos;
+    // readonly Vector3 zeroPos;
     Vector3 sineWavePos;
 
     //[SerializeField]
@@ -24,8 +24,8 @@ public class FollowCamera : MonoBehaviour
     [SerializeField]
     float minZoomOut = 3;
 
-   // public bool IsWalking { get; set; }
-
+    // public bool IsWalking { get; set; }
+    float x, y;
 
     private void Start()
     {
@@ -59,22 +59,29 @@ public class FollowCamera : MonoBehaviour
 
     private void RotationInput()
     {
-        float pitch = Input.GetAxis("Pitch");
-        pitch = Mathf.Clamp(pitch, -1, 1);
+        //float pitch = Input.GetAxis("Pitch");
+        //pitch = Mathf.Clamp(pitch, -1, 1);
+        //float yaw = Input.GetAxis("Yaw");
+        //yaw = Mathf.Clamp(yaw, -1, 1);
+        //if (pitch != 0)
+        //    transform.Rotate(pitch, 0, 0);
+        //else if (yaw != 0)
+        //    transform.Rotate(0, 0, yaw);
+        x += Input.GetAxis("Pitch");
+        y += Input.GetAxis("Yaw");
 
-        transform.Rotate(pitch, 0, 0);
+        x = Mathf.Clamp(x, -90, 90);
+        //float angle = transform.localEulerAngles.x;
+        //angle = (angle > 180) ? angle - 360 : angle;
 
-        float angle = transform.localEulerAngles.x;
-        angle = (angle > 180) ? angle - 360 : angle;
-
-        if (angle < minPitchAngle)
-        {
-            transform.localEulerAngles = new Vector3(minPitchAngle, transform.rotation.y, transform.rotation.z);
-        }
-        else if (angle > maxPitchAngle)
-        {
-            transform.localEulerAngles = new Vector3(maxPitchAngle, transform.rotation.y, transform.rotation.z);
-        }
+        //if (angle < minPitchAngle)
+        //{
+        //    transform.localEulerAngles = new Vector3(minPitchAngle, transform.rotation.y, transform.rotation.z);
+        //}
+        //else if (angle > maxPitchAngle)
+        //{
+        //    transform.localEulerAngles = new Vector3(maxPitchAngle, transform.rotation.y, transform.rotation.z);
+        //}
     }
 
     private void LateUpdate()
@@ -82,24 +89,19 @@ public class FollowCamera : MonoBehaviour
         RotationInput();
         ZoomInput();
 
-        float currentY = transform.eulerAngles.y;
-        float desiredY = target.transform.eulerAngles.y;
-        float angleY = Mathf.LerpAngle(currentY, desiredY, Time.deltaTime * damping);
+        //float currentY = transform.eulerAngles.y;
+        //float desiredY = target.transform.eulerAngles.y;
+        //float angleY = Mathf.LerpAngle(currentY, desiredY, Time.deltaTime * damping);
 
-        float currentX = transform.eulerAngles.x;
-        float desiredX = target.transform.parent.eulerAngles.x;
-        float angleX = Mathf.LerpAngle(currentX, desiredX, Time.deltaTime * damping / (damping - 1));
+        //float currentX = transform.eulerAngles.x;
+        //float desiredX = target.transform.parent.eulerAngles.x;
+        //float angleX = Mathf.LerpAngle(currentX, desiredX, Time.deltaTime * damping / (damping - 1));
 
-        //Debug.Log("1: " + angleX);
-        //Debug.Log("2: " + transform.eulerAngles.x);
-
-        Quaternion rotation = Quaternion.Euler(angleX, angleY, 0);  //transform.eulerAngles.x
-
-        transform.position = target.transform.position - (rotation * offset);
-        transform.LookAt(target.transform);
-
+        Quaternion rotation = Quaternion.Euler(x * 0.5f, y * 0.5f, 0);
+        transform.position = target.transform.position + rotation * new Vector3(0, 0, -10);
 
         SineBobbing();
+        transform.LookAt(target.transform);
     }
 
     private Vector2 CalculateHoverPosition(Vector2 amplitude, Vector2 frequency)
@@ -125,7 +127,7 @@ public class FollowCamera : MonoBehaviour
         Vector2 frequency = new Vector2(0.0005f, 0.001f);
 
         Vector2 newPosition = CalculateHoverPosition(amplitude, frequency);
-        
+
         transform.position += new Vector3(0, newPosition.y, 0);
     }
 }
