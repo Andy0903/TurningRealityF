@@ -113,11 +113,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if (m_Rigidbody.velocity.y < 0)
             {
-                m_Rigidbody.velocity += Vector3.up * Physics.gravity.y * 3f * Time.deltaTime;
+                m_Rigidbody.velocity += Vector3.up * Physics.gravity.y * 5f * Time.deltaTime;
             }
             else if (m_Rigidbody.velocity.y > 0 && !Input.GetButton("Jump"))
             {
-                m_Rigidbody.velocity += Vector3.up * Physics.gravity.y * 2f * Time.deltaTime;
+                m_Rigidbody.velocity += Vector3.up * Physics.gravity.y * 2.5f * Time.deltaTime;
             }
         }
 

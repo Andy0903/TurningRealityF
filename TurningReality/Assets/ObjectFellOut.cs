@@ -13,6 +13,5 @@ public class ObjectFellOut : MonoBehaviour {
     private void OnTriggerEnter(Collider p)
     {
         FindObjectOfType<LevelManage>().ForceLoad = true;
-        Debug.Log(p.tag + " Fell outside the map");
     }
 }
