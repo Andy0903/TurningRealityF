@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65340425901490650}
   - component: {fileID: 114409482945294486}
   - component: {fileID: 65195909013449626}
+  - component: {fileID: 114152977443606094}
   m_Layer: 0
   m_Name: Teleporter
   m_TagString: Untagged
@@ -108,6 +109,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.211536, y: 2.2115364, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0.041726474}
+--- !u!114 &114152977443606094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1101625364580162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c353373459227cc4aa2953426f39edce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 0, g: 1, b: 0.50344825, a: 0}
+  lerpFactor: 10
+  distanceToStartGlow: 15
 --- !u!114 &114409482945294486
 MonoBehaviour:
   m_ObjectHideFlags: 1
