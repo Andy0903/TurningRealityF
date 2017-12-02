@@ -26,6 +26,8 @@ public class FollowCamera : MonoBehaviour
 
     // public bool IsWalking { get; set; }
     float x, y;
+    float dist = 10;
+    float sensX = 0.15f, sensY = 0.2f;
 
     private void Start()
     {
@@ -67,10 +69,10 @@ public class FollowCamera : MonoBehaviour
         //    transform.Rotate(pitch, 0, 0);
         //else if (yaw != 0)
         //    transform.Rotate(0, 0, yaw);
-        x += Input.GetAxis("Pitch");
-        y += Input.GetAxis("Yaw");
+        x += Input.GetAxis("Pitch") * sensX;
+        y += Input.GetAxis("Yaw") * sensY;
 
-        x = Mathf.Clamp(x, -90, 90);
+        x = Mathf.Clamp(x, -60, 60);
         //float angle = transform.localEulerAngles.x;
         //angle = (angle > 180) ? angle - 360 : angle;
 
@@ -97,11 +99,11 @@ public class FollowCamera : MonoBehaviour
         //float desiredX = target.transform.parent.eulerAngles.x;
         //float angleX = Mathf.LerpAngle(currentX, desiredX, Time.deltaTime * damping / (damping - 1));
 
-        Quaternion rotation = Quaternion.Euler(x * 0.5f, y * 0.5f, 0);
-        transform.position = target.transform.position + rotation * new Vector3(0, 0, -10);
+        Quaternion rotation = Quaternion.Euler(x, y, 0);
+        transform.position = target.transform.position + rotation * new Vector3(0, 0, -dist);
+        transform.LookAt(target.transform);
 
         SineBobbing();
-        transform.LookAt(target.transform);
     }
 
     private Vector2 CalculateHoverPosition(Vector2 amplitude, Vector2 frequency)
