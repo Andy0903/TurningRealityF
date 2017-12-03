@@ -26,8 +26,12 @@ public class FollowCamera : MonoBehaviour
 
     // public bool IsWalking { get; set; }
     float x, y;
-    float dist = 10;
-    float sensX = 0.15f, sensY = 0.2f;
+    float dist = originalDistance;
+    float sensX = 0.15f * 10, sensY = 0.2f * 10;
+
+    const float originalDistance = 10;
+    float maxDistance = originalDistance * 2;
+    float minDistance = originalDistance / 2;
 
     private void Start()
     {
@@ -42,20 +46,30 @@ public class FollowCamera : MonoBehaviour
         float zoom = Input.GetAxis("Zoom");
         bool zoomingOut = (0 < zoom);
         bool zoomingIn = (zoom < 0);
-
+        
         if (zoomingOut)
         {
-            if (offset.z < maxZoomOut)
+            //if (offset.z < maxZoomOut)
+            //{
+            //    offset = new Vector3(offset.x, offset.y, offset.z + (zoomSpeed * Time.deltaTime));
+            //}
+
+            if (dist < maxDistance)
             {
-                offset = new Vector3(offset.x, offset.y, offset.z + (zoomSpeed * Time.deltaTime));
+                dist++;
             }
         }
         else if (zoomingIn)
         {
-            if (offset.z > minZoomOut)
+
+            if (minDistance < dist)
             {
-                offset = new Vector3(offset.x, offset.y, offset.z - (zoomSpeed * Time.deltaTime));
+                dist--;
             }
+            //if (offset.z > minZoomOut)
+            //{
+            //    offset = new Vector3(offset.x, offset.y, offset.z - (zoomSpeed * Time.deltaTime));
+            //}
         }
     }
 
@@ -86,7 +100,7 @@ public class FollowCamera : MonoBehaviour
         //}
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()  //LateUpdate
     {
         RotationInput();
         ZoomInput();
