@@ -100,7 +100,7 @@ public class FollowCamera : MonoBehaviour
         //}
     }
 
-    private void FixedUpdate()  //LateUpdate
+    private void LateUpdate() 
     {
         RotationInput();
         ZoomInput();
