@@ -27,7 +27,6 @@ public class ArrowScript : MonoBehaviour
             {
                 joystickReadyToMove = false;
                 index++;
-                Debug.Log(index);
                 Vector2 position = transform.position;
                 position.y -= yOffSet;
                 transform.position = position;
@@ -39,7 +38,6 @@ public class ArrowScript : MonoBehaviour
             {
                 joystickReadyToMove = false;
                 index--;
-                Debug.Log(index);
                 Vector2 position = transform.position;
                 position.y += yOffSet;
                 transform.position = position;
