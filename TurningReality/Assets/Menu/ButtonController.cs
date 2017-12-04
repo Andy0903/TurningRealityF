@@ -23,6 +23,10 @@ public class ButtonController : MonoBehaviour
         {
             controlScheme.SetActive(!controlScheme.activeSelf);
         }
+        else if (Input.GetButtonDown("Interact"))
+        {
+            SceneManager.LoadScene(0);
+        }
         else if (Input.GetButtonDown("Cancel"))
         {
             Application.Quit();
