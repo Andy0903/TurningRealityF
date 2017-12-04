@@ -9,14 +9,11 @@ public class ArrowScript : MonoBehaviour
     int index = 0;
     public int totalButtons = 3;
     public float yOffSet = 20;
+    [SerializeField]
     GameObject controlScheme;
     // Use this for initialization
     bool joystickReadyToMove = true;
-
-    void Start()
-    {
-
-    }
+    
     void Update()
     {
         if (Input.GetAxis("Vertical") < 0.5f && -0.5f < Input.GetAxis("Vertical"))
