@@ -17,7 +17,7 @@ public class ArrowScript : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetButtonDown("Vertical"))
         {
             if (index < totalButtons - 1)
             {
@@ -28,7 +28,7 @@ public class ArrowScript : MonoBehaviour
                 transform.position = position;
             }
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("Vertical") )
         {
             
             if (index > 0)
@@ -40,7 +40,7 @@ public class ArrowScript : MonoBehaviour
                 transform.position = position;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Return))
         {
             switch (index)
             {
