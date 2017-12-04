@@ -65,7 +65,7 @@ public class ButtonManager : MonoBehaviour
                         currentTrig.Enter();
                         currObj = currentTrig.interactedObj;
                         SetKinematic(true, currObj);
-                        LevitatePos = new Vector3(temp.transform.position.x, temp.transform.position.y + 2, temp.transform.position.z);
+                        LevitatePos = new Vector3(temp.transform.position.x, temp.transform.position.y + (currObj.GetComponent<Collider>().bounds.size.y / 2), temp.transform.position.z);
 
                         player.GetComponent<ThirdPersonUserControl>().StopTranslation = true;
                         player.GetComponent<ThirdPersonCharacter>().HaltMovement();
@@ -80,7 +80,7 @@ public class ButtonManager : MonoBehaviour
     private void ObjectLevitates()
     {
         currObj.transform.position = Vector3.Lerp(currObj.transform.position, LevitatePos, Time.deltaTime * 3);
-        if (Vector3.Distance(currObj.transform.position, LevitatePos) < 0.1)
+        if (Vector3.Distance(currObj.transform.position, LevitatePos) <= Time.deltaTime * 3)
             objInPosition = true;
     }
 

@@ -11,21 +11,29 @@ public class PuzzlePieceHolder : MonoBehaviour
     GameObject myTarget;
     Vector3 targetPos;
 
+    bool isActive()
+    {
+        if (Vector3.Dot(new Vector3(0, 1, 0), transform.up) >= 1)
+            return true;
+        return false;
+    }
+
     private void OnTriggerEnter(Collider p)
     {
-        if (!inRange && !lockedOn)
-        {
-            for (int i = 0; i < InteractiveObjects.Length; i++)
+        if (isActive())
+            if (!inRange && !lockedOn)
             {
-                if (p == InteractiveObjects[i].GetComponent<Collider>())
+                for (int i = 0; i < InteractiveObjects.Length; i++)
                 {
-                    myTarget = InteractiveObjects[i];
-                    inRange = true;
-                    return;
+                    if (p == InteractiveObjects[i].GetComponent<Collider>())
+                    {
+                        myTarget = InteractiveObjects[i];
+                        inRange = true;
+                        return;
+                    }
                 }
-            }
 
-        }
+            }
     }
 
     private void OnTriggerExit(Collider other)
@@ -73,7 +81,7 @@ public class PuzzlePieceHolder : MonoBehaviour
     private bool RunLockOn()
     {
         float distance = Vector3.Distance(transform.position, targetPos);
-        if(distance > 2.3f)
+        if (distance > 2.3f)
         {
             myTarget.transform.position = Vector3.Lerp(myTarget.transform.position,
                 targetPos, Time.deltaTime);

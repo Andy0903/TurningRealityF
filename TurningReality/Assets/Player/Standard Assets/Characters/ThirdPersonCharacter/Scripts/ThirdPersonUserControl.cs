@@ -47,7 +47,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
-            RotationInput();
+            //RotationInput();
             if (!m_Jump && !objectPusher.IsHolding)
             {
                 m_Jump = Input.GetButtonDown("Jump");

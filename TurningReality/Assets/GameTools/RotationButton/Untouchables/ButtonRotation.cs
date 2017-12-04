@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonRotation : MonoBehaviour
 {
     private float coolDown = 0, startTimer = 0.4f;
-    private Vector3 accumulateAngle, angleStep;
+    private Vector3 accumulateAngle;
     private int CurrentNrOfRotations;
     private int cdInterval = 30;
     public bool Triggered { get; set; }
@@ -21,8 +21,6 @@ public class ButtonRotation : MonoBehaviour
     public GameObject[] InteractiveObjects;
     // The degrees of rotation - 90 tends to work well
     public float[] TiltDegrees;
-    // Give in Units of 1 on a specified axis
-    public Vector3[] Axes;
 
     bool cogTickSoundNeedsToPlay = false;
 
@@ -30,7 +28,6 @@ public class ButtonRotation : MonoBehaviour
     {
         Triggered = false;
         accumulateAngle = Vector3.zero;
-        angleStep = Vector3.zero;
         CurrentNrOfRotations = 0;
     }
 
@@ -69,15 +66,14 @@ public class ButtonRotation : MonoBehaviour
         AudioManager.Instance.Play("WorldRotationMetalThunder");
         AudioManager.Instance.Play("WorldRotationFastChugging");
         ChangeColor(triggeredColor);
-        angleStep = Axes[CurrentNrOfRotations];
     }
 
     public void Running(Transform worldTrans)
     {
         if (!MustCoolDown())
         {
-            accumulateAngle += angleStep * 0.5f;
-            worldTrans.Rotate(angleStep * 0.5f, Space.World);
+            accumulateAngle += -transform.right * 0.5f;
+            worldTrans.Rotate(-transform.right * 0.5f, Space.World);
         }
     }
 
@@ -105,7 +101,7 @@ public class ButtonRotation : MonoBehaviour
 
     private bool MustCoolDown()
     {
-        if (accumulateAngle.magnitude % cdInterval == 0)
+        if (accumulateAngle.magnitude % cdInterval <= Time.deltaTime)
         {
             if (coolDown == startTimer)
             {

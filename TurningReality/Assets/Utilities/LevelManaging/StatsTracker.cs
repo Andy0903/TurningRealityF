@@ -17,4 +17,11 @@ public class StatsTracker : MonoBehaviour {
         txtScore.text = "Score: " + score.ToString();
     }
 
+    public void Punish()
+    {
+        if (score >= 20)
+            score -= 20;
+        else
+            score = 0;
+    }
 }

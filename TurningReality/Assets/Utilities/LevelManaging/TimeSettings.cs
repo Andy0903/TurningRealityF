@@ -10,6 +10,7 @@ public class TimeSettings : MonoBehaviour
     public Text txtTime;
 
     double time;
+    public bool isCounting;
 
     // Use this for initialization
     void Start()
@@ -20,8 +21,11 @@ public class TimeSettings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimeLimit -= Time.deltaTime;
-        UpdateGUI();
+        if (isCounting)
+        {
+            TimeLimit -= Time.deltaTime;
+            UpdateGUI();
+        }
     }
 
     public bool TimeOver()

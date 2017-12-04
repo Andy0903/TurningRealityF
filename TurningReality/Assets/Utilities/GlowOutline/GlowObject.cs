@@ -9,15 +9,20 @@ public class GlowObject : MonoBehaviour
     [SerializeField]
     float lerpFactor = 10f;
 
+    [SerializeField]
+    float distanceToStartGlow = 15f;
+
     private List<Material> materials = new List<Material>();
     private Color currentColor;
     private Color targetColor;
 
     GameObject mainCamera;
+    Transform player;
     
     private void Start()
     {
         mainCamera = Camera.main.gameObject;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Awake()
@@ -51,11 +56,25 @@ public class GlowObject : MonoBehaviour
         RaycastHit hit;
         Vector3 direction = (transform.position - Camera.main.transform.position).normalized;
 
-        if (Physics.Linecast(Camera.main.transform.position, GetComponentInChildren<Renderer>().bounds.center, out hit))
+        if (tag == "GlowObject")
         {
-            if (hit.transform.tag != gameObject.tag)
+            if (Physics.Linecast(Camera.main.transform.position, GetComponentInChildren<Renderer>().bounds.center, out hit))
             {
-                //Debug.Log("Player is occluded by " + hit.transform.name);
+                if (hit.transform.tag != gameObject.tag)
+                {
+                    //Debug.Log("Player is occluded by " + hit.transform.name);
+                    targetColor = glowColor;
+                }
+                else
+                {
+                    targetColor = Color.black;
+                }
+            }
+        }
+        else
+        {
+            if (Vector3.Distance(transform.position, player.position) <= distanceToStartGlow)
+            {
                 targetColor = glowColor;
             }
             else

@@ -24,8 +24,6 @@ public class PuzzleManager : MonoBehaviour
 
     public void CheckActivateGoal()
     {
-        Debug.Log("Goal Check");
-
         for (int i = 0; i < puzzlePieceHolders.Length; i++)
         {
             if (!puzzlePieceHolders[i].GetComponent<PuzzlePieceHolder>().lockedOn)
@@ -33,7 +31,6 @@ public class PuzzleManager : MonoBehaviour
             else if (i == puzzlePieceHolders.Length - 1)
             {
                 goal.isUnlocked = true;
-                Debug.Log("Goal!");
             }
         }
     }

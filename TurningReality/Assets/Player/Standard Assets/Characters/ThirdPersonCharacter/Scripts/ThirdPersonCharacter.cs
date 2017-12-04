@@ -110,6 +110,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             // send input and other state parameters to the animator
             UpdateAnimator(move);
+
+            if (m_Rigidbody.velocity.y < 0)
+            {
+                m_Rigidbody.velocity += Vector3.up * Physics.gravity.y * 5f * Time.deltaTime;
+            }
+            else if (m_Rigidbody.velocity.y > 0 && !Input.GetButton("Jump"))
+            {
+                m_Rigidbody.velocity += Vector3.up * Physics.gravity.y * 2.5f * Time.deltaTime;
+            }
         }
 
 
@@ -198,11 +207,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         void ForceMovementInAir()
         {
             float v = Input.GetAxis("Vertical");
+            float h = Input.GetAxis("Horizontal");
 
             if (0 < v)
             {
-                transform.Translate(0.1f * Vector3.forward); //Magic number for speed
+                transform.Translate(0.1f * Vector3.forward * v); //Magic number for speed
             }
+            else if(0 < h)
+                transform.Translate(0.1f * Vector3.right * h); //Magic number for speed
+
         }
 
         void ForceMovementDrag()
