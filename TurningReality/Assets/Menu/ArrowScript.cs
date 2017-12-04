@@ -11,16 +11,24 @@ public class ArrowScript : MonoBehaviour
     public float yOffSet = 20;
     GameObject controlScheme;
     // Use this for initialization
+    bool joystickReadyToMove = true;
+
     void Start()
     {
 
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetButtonDown("Vertical"))
+        if (Input.GetAxis("Vertical") < 0.5f && -0.5f < Input.GetAxis("Vertical"))
+        {
+            joystickReadyToMove = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetAxis("Vertical") == -1 && joystickReadyToMove)
         {
             if (index < totalButtons - 1)
             {
+                joystickReadyToMove = false;
                 index++;
                 Debug.Log(index);
                 Vector2 position = transform.position;
@@ -28,11 +36,11 @@ public class ArrowScript : MonoBehaviour
                 transform.position = position;
             }
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("Vertical") )
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxis("Vertical") == 1 && joystickReadyToMove)
         {
-            
             if (index > 0)
             {
+                joystickReadyToMove = false;
                 index--;
                 Debug.Log(index);
                 Vector2 position = transform.position;
