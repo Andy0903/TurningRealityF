@@ -53,5 +53,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pathpointprefab: {fileID: 1715236490727550, guid: 526b8aedbb4c8784fa29b9685388853e,
     type: 2}
-  colors: []
-  fileNames: []
+  colors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.8896551, a: 1}
+  - {r: 0.57241344, g: 0, b: 1, a: 1}
+  - {r: 0.034482475, g: 0, b: 1, a: 1}
+  - {r: 0, g: 0.95862055, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.25517225, a: 1}
+  - {r: 0.862069, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.5586207, b: 0, a: 1}
+  - {r: 0.07071801, g: 0.8014706, b: 0.52932817, a: 1}
+  - {r: 0.99264705, g: 0.6568988, b: 0.9417059, a: 1}
+  - {r: 0.7352941, g: 0.7352941, b: 0.7352941, a: 1}
+  - {r: 0.49264705, g: 0.3295639, b: 0.12316176, a: 1}
+  - {r: 0.3241081, g: 0.5735294, b: 0.3036332, a: 1}
+  - {r: 0.2934148, g: 0.43493843, b: 0.49264705, a: 1}
+  - {r: 0.65354973, g: 1, b: 0.58823526, a: 1}
+  - {r: 0.58823526, g: 0.9488844, b: 1, a: 1}
+  - {r: 1, g: 0.9440163, b: 0.49264705, a: 1}
+  - {r: 0.4705882, g: 0.5180526, b: 1, a: 1}
+  fileNames:
+  - PlayerPathBuild_1ID_0a4ee6c5-f4a0-40c3-a9f3-195fbe78af58
+  - PlayerPathBuild_1ID_1ed5115a-c62f-4594-b969-6ba3d0439f8b
+  - PlayerPathBuild_1ID_2a787f98-afe7-4d52-ac45-1d5f0d6c7d02
+  - PlayerPathBuild_1ID_2cbe72f0-c265-4541-8ab6-a971ccedaaf1
+  - PlayerPathBuild_1ID_2fc71aca-93cb-4113-8b4e-c78fc9a8e5c2
+  - PlayerPathBuild_1ID_03c7c231-97bd-4d81-b0f8-345de6f235c8
+  - PlayerPathBuild_1ID_4a5c821f-5a7c-49ef-98d5-1a5ab585b3c8
+  - PlayerPathBuild_1ID_4bd3cdb5-b9f2-4fe8-bd04-e6749e9c03e4
+  - PlayerPathBuild_1ID_5afb2f2a-d63a-4457-ae40-5ce2ff6c0383
+  - PlayerPathBuild_1ID_6c57ad8d-7ba5-43c4-97c8-82aae0bd7a44
+  - PlayerPathBuild_1ID_9a7d45f8-e83e-4682-9949-cc02de1bcb94
+  - PlayerPathBuild_1ID_9a229c77-32fc-4ce1-8964-6c2e1323b025
+  - PlayerPathBuild_1ID_9d4f129c-8b6e-4268-a451-3a79c594ca15
+  - PlayerPathBuild_1ID_9f8fce36-cd7b-498e-8a45-3bde5d674da4
+  - PlayerPathBuild_1ID_23a85205-eab5-46bf-903b-7a77d5deea4b
+  - PlayerPathBuild_1ID_31f93190-49b4-4741-8652-51d98e391954
+  - PlayerPathBuild_1ID_42c913a7-8d78-447a-9e41-35c9a491d32b
+  - PlayerPathBuild_1ID_47aad00c-55d7-473d-9eb4-d4aa183ac497
+  - PlayerPathBuild_1ID_67b42a0b-91e5-4408-a703-1e070c417f41
+  - PlayerPathBuild_1ID_77a47664-e049-4014-a167-5fb10b419a88
+  - PlayerPathBuild_1ID_85ae287b-1397-4f5b-bc44-6457d9c874b4
+  - PlayerPathBuild_1ID_191c1c4f-2499-4ad4-ae33-a634bb0a2007
+  - PlayerPathBuild_1ID_792d3259-e51b-4629-ba53-b0b7bca3549e
+  - PlayerPathBuild_1ID_04196e8c-3a2a-4210-9fb0-bff0b27c3d58
+  - PlayerPathBuild_1ID_5518f2c0-cbd6-4385-9c72-42e40530aacd
+  - PlayerPathBuild_1ID_ff14573a-a1c6-44b4-8ff9-23cac5793da0
+  - PlayerPathBuild_1ID_68338c44-2161-469f-b9f1-0926f1631131
+  - PlayerPathBuild_1ID_282834d1-af41-4a72-bd94-0dab02ff48e1
+  - PlayerPathBuild_1ID_940018fe-fec8-4c21-b3d8-4971869ec6c9.data
+  - PlayerPathBuild_1ID_24146277-d889-460a-8e46-5deed6946905
+  - PlayerPathBuild_1ID_aa41d043-ba39-4dcf-80ee-b33226185503
+  - PlayerPathBuild_1ID_acda29d9-875f-4f1c-b53f-3cdc70a45c9b
+  - PlayerPathBuild_1ID_b41ea518-1a8c-4823-8538-f221ff762dd8
+  - PlayerPathBuild_1ID_baac1ccf-fe17-4ef9-8ed9-c3a59de05a77
+  - PlayerPathBuild_1ID_bc415a6b-96b9-43a8-9c35-d4502921a778
+  - PlayerPathBuild_1ID_c33d142f-2772-4184-9910-7aeff9ecbec8
+  - PlayerPathBuild_1ID_c49ef8ad-c6a2-4671-b83e-6163453e9a82
+  - PlayerPathBuild_1ID_d6239e7c-57b8-4273-89c2-e6e97093b59d
+  - PlayerPathBuild_1ID_daee6009-99e8-4b54-89b0-27b05b7936de
+  - PlayerPathBuild_1ID_e1626a74-ef3d-4f45-8930-90ad512567a2
+  - PlayerPathBuild_1ID_fc1e3b1e-5ae4-48b8-9935-891150240aaf

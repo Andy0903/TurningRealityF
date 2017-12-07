@@ -28,6 +28,7 @@ public class PathLineDrawer : MonoBehaviour
 
     private void Load()
     {
+        int kki = 0;
         foreach (string fileName in fileNames)
         {
             if (File.Exists(Application.persistentDataPath + "/" + fileName + ".data"))
@@ -36,6 +37,7 @@ public class PathLineDrawer : MonoBehaviour
                 FileStream file = File.Open(Application.persistentDataPath + "/" + fileName + ".data", FileMode.Open);
                 files.Add((List<SerializableVector3>)bf.Deserialize(file));
                 file.Close();
+                Debug.Log(kki++);
             }
         }
 
