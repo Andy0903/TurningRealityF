@@ -6,7 +6,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class ButtonManager : MonoBehaviour
 {
     public Color ActiveColor, TriggeredColor, DisabledColor;
-    ButtonRotation currentTrig;
+    ButtonRotation currentButton;
     Transform worldTrans;
     GameObject[] buttons;
     GameObject currObj, player;
@@ -33,51 +33,64 @@ public class ButtonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentTrig != null)
+        if (currentButton != null)
         {
             if (objInPosition)
             {
-                currentTrig.Running(worldTrans);
+                currentButton.Running(worldTrans);
 
-                if (currentTrig.Exit())
+                if (currentButton.Exit())
                 {
                     SetKinematic(false, currObj);
                     SetKinematic(false, player);
                     player.transform.eulerAngles = new Vector3(0, currObj.transform.eulerAngles.y, 0);
                     player.GetComponent<ThirdPersonUserControl>().StopTranslation = false;
-                    currentTrig = null;
+                    currentButton = null;
                     objInPosition = false;
                 }
             }
             else
-                ObjectLevitates();
+                LevitateObject();
         }
         else
         {
             for (int i = 0; i < buttons.Length; i++)
             {
-                ButtonRotation temp = buttons[i].GetComponent<ButtonRotation>();
-                if (temp.Active())
+                ButtonRotation tempButton = buttons[i].GetComponent<ButtonRotation>();
+                if (tempButton.Active())
                 {
-                    if (temp.Triggered)
+                    if (tempButton.Triggered)
                     {
-                        currentTrig = temp;
-                        currentTrig.Enter();
-                        currObj = currentTrig.interactedObj;
-                        SetKinematic(true, currObj);
-                        LevitatePos = new Vector3(temp.transform.position.x, temp.transform.position.y + (currObj.GetComponent<Collider>().bounds.size.y / 2), temp.transform.position.z);
+                        currObj = tempButton.interactedObj;
+                        LevitatePos = new Vector3(tempButton.transform.position.x, tempButton.transform.position.y + (currObj.GetComponent<Collider>().bounds.size.y / 2), tempButton.transform.position.z);
 
-                        player.GetComponent<ThirdPersonUserControl>().StopTranslation = true;
-                        player.GetComponent<ThirdPersonCharacter>().HaltMovement();
-                        player.GetComponent<ObjectPusher>().ForceDropObject();
-                        SetKinematic(true, player);
+                        if (currObj == player || PlayerBlocksObject(LevitatePos))
+                        {
+                            currentButton = tempButton;
+                            currentButton.Enter();
+                            SetKinematic(true, currObj);
+                            player.GetComponent<ThirdPersonUserControl>().StopTranslation = true;
+                            player.GetComponent<ThirdPersonCharacter>().HaltMovement();
+                            player.GetComponent<ObjectPusher>().ForceDropObject();
+                            SetKinematic(true, player);
+                        }
+
+
                     }
                 }
             }
         }
     }
 
-    private void ObjectLevitates()
+    private bool PlayerBlocksObject(Vector3 other)
+    {
+        float dist = Vector3.Distance(player.transform.position, other);
+        if (dist > 4)
+            return true;
+        return false;
+    }
+
+    private void LevitateObject()
     {
         currObj.transform.position = Vector3.Lerp(currObj.transform.position, LevitatePos, Time.deltaTime * 3);
         if (Vector3.Distance(currObj.transform.position, LevitatePos) <= Time.deltaTime * 3)

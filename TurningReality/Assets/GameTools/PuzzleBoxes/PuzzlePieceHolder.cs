@@ -57,9 +57,7 @@ public class PuzzlePieceHolder : MonoBehaviour
             {
                 float distance = Vector3.Distance(myTarget.transform.position, transform.position);
                 if (distance < 2.8f)
-                {
                     EnterLockOn();
-                }
             }
             else if (lockedOn)
             {
@@ -73,7 +71,7 @@ public class PuzzlePieceHolder : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<ObjectPusher>().ForceDropObject();
-        player.GetComponent<ThirdPersonUserControl>().StopTranslation = true;
+        //player.GetComponent<ThirdPersonUserControl>().StopTranslation = true;
         targetPos = new Vector3(transform.position.x - (GetComponent<BoxCollider>().size.x / 2), myTarget.transform.position.y, transform.position.z - (GetComponent<BoxCollider>().size.z / 2));
         lockedOn = true;
     }
@@ -81,10 +79,10 @@ public class PuzzlePieceHolder : MonoBehaviour
     private bool RunLockOn()
     {
         float distance = Vector3.Distance(transform.position, targetPos);
-        if (distance > 2.3f)
+        if (distance > 2.25f)
         {
-            myTarget.transform.position = Vector3.Lerp(myTarget.transform.position,
-                targetPos, Time.deltaTime);
+            //myTarget.transform.position = Vector3.Lerp(myTarget.transform.position,
+            //    targetPos, Time.deltaTime);
             return true;
         }
         return false;
@@ -95,8 +93,8 @@ public class PuzzlePieceHolder : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         myTarget.layer = 0;
         done = true;
-        player.GetComponent<ThirdPersonUserControl>().StopTranslation = false;
-        myTarget.transform.position = targetPos;
+        //player.GetComponent<ThirdPersonUserControl>().StopTranslation = false;
+        //myTarget.transform.position = targetPos;
         myTarget.GetComponent<Rigidbody>().isKinematic = true;
         GameObject.Find("PuzzleManager").GetComponent<PuzzleManager>().CheckActivateGoal();
     }
